@@ -1,0 +1,24 @@
+
+<!--index.wxml-->
+<view class="page">
+
+  <!--description-->
+  <view class="page__hd">
+    <view class="page__title">{{description.appName}}</view>
+    <view class="page__desc">{{description.content}}</view>
+  </view>
+  <!--function module-->
+  <view class="page__bd page__bd_spacing">
+    <view class="kind-list">
+      <view wx:for="{{funcType}}" bindtap="{{'bind'+item.typeId+'Tap'}}">
+        <view class="customize weui-flex kind-list__item-hd kind-list__item-hd_show">
+          <view class="weui-flex__item">{{item.typeName}}</view>
+          <image class="kind-list__img" src="{{item.typeIcon}}">
+          </image>
+          <image class="icon_chevron" src="{{item.linkIcon}}">
+          </image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,26 @@
+<view class="page">
+
+  <!--个人信息-->
+  <view class="top_section">
+    <text>账户</text>
+    <text class="top_text_style">{{userInfo.phone}}</text>
+  </view>
+
+  <!--订单类型列表-->
+  <view class="middle_section">
+    <view class="weui-cells weui-cells_after-title">
+      <view wx:for="{{orderType}}">
+        <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+          <view class="weui-cell__hd">
+            <image src="{{item.typeIcon}}" class="order_type_icon"></image>
+          </view>
+          <view class="weui-cell__bd">{{item.typeName}}</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+        <view wx:if="{{index<3}}" class="divide">
+          <view></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
