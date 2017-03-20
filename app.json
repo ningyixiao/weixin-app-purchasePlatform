@@ -1,9 +1,11 @@
 {
   "pages":[
-    "pages/order/order",
+    "pages/orderList/orderList",
+    "pages/productList/productList",
     "pages/index",
     "pages/logs/logs",
-    "pages/order/order"
+    "pages/order/order",
+    "pages/orderList/orderList"
   ],
   "window":{
     "navigationBarBackgroundColor": "#000",

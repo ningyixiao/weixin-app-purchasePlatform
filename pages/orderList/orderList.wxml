@@ -1,0 +1,65 @@
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-tab">
+      <view class="weui-navbar">
+        <block wx:for-items="{{tabs}}" wx:key="{{index}}">
+          <view id="{{index}}" class="navbar_item_customize weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+        <view class="weui-navbar__slider" style="width:{{sliderWidth}}px;left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+      </view>
+      <view class="weui-tab__panel">
+        <block wx:for-items="{{tabs}}" wx:key="{{index}}">
+          <view hidden="{{activeIndex != index}}">
+
+            <!--对应类型的订单列表-->
+            <block wx:for="{{orderList}}" wx:for-index="index1" wx:for-item="order" wx:key="item.orderCode">
+
+              <!--单个订单wrap-->
+              <view class="order_wrap">
+
+                <!--订单基本信息-->
+                <view class="order_basic_info">
+                  <block wx:if="{{order.orderState==2}}">
+                    <button>取消订单</button>
+                  </block>
+                  <view>
+                    <text>状态:</text>
+                    <view class="info_text" wx:if="{{order.orderState==1}}">已发货</view>
+                    <view class="info_text" wx:elif="{{order.orderState==2}}">待付款</view>
+                    <view class="info_text" wx:elif="{{order.orderState==3}}">待发货</view>
+                    <view class="info_text" wx:else>已完成</view>
+                  </view>
+                  <view>
+                    <text>总价:</text>¥{{order.totalPrice}}
+                  </view>
+                </view>
+
+                <!--订单的产品列表-->
+                <block wx:for="{{order.productList}}" wx:for-index="index2" wx:for-item="product" wx:key="{{product.productCode}}">
+                  <view id="{{product.id}}" bindtap="buyProduct" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                      <image class="weui-media-box__thumb" src="{{product.imageUrl}}" />
+                    </view>
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                      <view class="weui-media-box__title">{{product.productDes}}</view>
+                      <view class="weui-media-box__desc">
+                        <text class="info_price">
+                          ¥{{product.price}}
+                        </text>
+                        <text class="info_amount">
+                          x{{product.amount}}
+                        </text>
+                      </view>
+                    </view>
+                  </view>
+                </block>
+              </view>
+            </block>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>
