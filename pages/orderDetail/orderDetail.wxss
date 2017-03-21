@@ -3,13 +3,13 @@
   overflow: hidden;
 }
 
-.logistics {
+.order_trace {
   position: relative;
   padding: 24rpx 24rpx 16rpx;
   line-height: 1.4;
 }
 
-.logistics::after {
+.order_trace::after {
   content: "";
   position: absolute;
   left: 24rpx;
@@ -19,15 +19,15 @@
   border-top: 1rpx solid #f2f2f2;
 }
 
-.logistics .access_arrow {
+.order_trace .access_arrow {
   top: 24rpx;
 }
 
-.logistics .progress {
+.order_trace .progress {
   font-size: 24rpx;
 }
 
-.logistics .order_time {
+.order_trace .order_time {
   font-size: 24rpx;
   color: #9b9b9b;
 }

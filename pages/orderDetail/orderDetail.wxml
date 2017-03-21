@@ -1,6 +1,6 @@
 <view class="page">
   <view class="top_section">
-    <view class="logistics">
+    <view bindtap="bindOrderTraceTap" class="order_trace">
       <view class="access_arrow weui-cell__ft weui-cell__ft_in-access"></view>
       <view class="progress">客户已签单</view>
       <view class="order_time">2017-03-16 12:00:00</view>
@@ -59,6 +59,6 @@
     </view>
   </view>
   <view wx:if="{{orderState==4}}" class="return_goods">
-    <button>申请退货</button>
+    <button bindtap="bindApplyRefundTap">申请退货</button>
   </view>
 </view>

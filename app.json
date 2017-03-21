@@ -1,12 +1,13 @@
 {
     "pages": [
-        "pages/orderDetail/orderDetail",
         "pages/index",
         "pages/logs/logs",
         "pages/productList/productList",
         "pages/order/order",
         "pages/orderList/orderList",
-        "pages/orderDetail/orderDetail"
+        "pages/orderDetail/orderDetail",
+        "pages/applyRefund/applyRefund",
+        "pages/orderTrace/orderTrace"
     ],
     "window": {
         "navigationBarBackgroundColor": "#000",

@@ -1,0 +1,13 @@
+<view class="page">
+  <view class="top_section">
+    <text>订单编号:</text>{{orderCode}}
+  </view>
+  <view class="main_section">
+    <view wx:for="{{expressData.data}}" wx:key="index" class="data_item_wrap">
+      <view class="item_content">
+        <view class="context">{{item.context}}</view>
+        <view class="time">{{item.time}}</view>
+      </view>
+    </view>
+  </view>
+</view>

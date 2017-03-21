@@ -1,0 +1,25 @@
+<view class="page">
+  <view class="up_section">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">快递类型:</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="请输入快递类型">
+        </input>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">快递单号:</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="请输入快递单号">
+        </input>
+      </view>
+    </view>
+  </view>
+  <view class="down_section">
+    <button class="submit_btn">提交</button>
+  </view>
+</view>

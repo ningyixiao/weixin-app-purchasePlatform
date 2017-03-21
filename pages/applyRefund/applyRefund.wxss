@@ -1,0 +1,29 @@
+.page {
+  padding: 30rpx 40rpx;
+}
+
+.up_section {
+  background: #fff;
+  font-size: 28rpx;
+}
+
+.down_section {
+  margin-top: 30rpx;
+}
+
+.down_section .submit_btn {
+  background: #1aad19;
+  color: #fff;
+  font-size: 28rpx;
+}
+
+.weui-cell::before {
+  content: " ";
+  position: absolute;
+  left: 15px;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1rpx solid #f2f2f2;
+  color: #f2f2f2;
+}
