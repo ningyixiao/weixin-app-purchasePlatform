@@ -10,7 +10,7 @@
   <view class="middle_section">
     <view class="weui-cells weui-cells_after-title">
       <view wx:for="{{orderType}}">
-        <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <navigator url="../orderList/orderList?orderType={{item.typeCode}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
           <view class="weui-cell__hd">
             <image src="{{item.typeIcon}}" class="order_type_icon"></image>
           </view>

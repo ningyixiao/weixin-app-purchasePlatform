@@ -1,47 +1,44 @@
 {
-  "pages":[
-    "pages/orderList/orderList",
-    "pages/productList/productList",
-    "pages/index",
-    "pages/logs/logs",
-    "pages/order/order",
-    "pages/orderList/orderList"
-  ],
-  "window":{
-    "navigationBarBackgroundColor": "#000",
-    "navigationBarTextStyle":"white",
-    "backgroundTextStyle":"light",
-    "navigationBarTitleText": "WeChat",
-    "backgroundColor":"F8F8F8"
-  },
-  "tabBar": {
+    "pages": [
+        "pages/orderDetail/orderDetail",
+        "pages/index",
+        "pages/logs/logs",
+        "pages/productList/productList",
+        "pages/order/order",
+        "pages/orderList/orderList",
+        "pages/orderDetail/orderDetail"
+    ],
+    "window": {
+        "navigationBarBackgroundColor": "#000",
+        "navigationBarTextStyle": "white",
+        "backgroundTextStyle": "light",
+        "navigationBarTitleText": "小程序名",
+        "backgroundColor": "F8F8F8"
+    },
+    "tabBar": {
         "color": "#000",
-        "selectedColor":"green",
+        "selectedColor": "green",
         "backgroundColor": "#fff",
-        "borderStyle":"white",
-        "position":"bottom",
+        "borderStyle": "white",
+        "position": "bottom",
         "list": [
-           {
+            {
                 "pagePath": "pages/index",
                 "text": "购物车",
                 "iconPath": "pages/images/icon_cart.png",
-                "selectedIconPath": 
-                "pages/images/icon_cart_selected.png"
+                "selectedIconPath": "pages/images/icon_cart_selected.png"
             },
-           {
+            {
                 "pagePath": "pages/index",
                 "text": "主页",
                 "iconPath": "pages/images/icon_home.png",
-                "selectedIconPath": 
-                "pages/images/icon_home_selected.png"
+                "selectedIconPath": "pages/images/icon_home_selected.png"
             },
             {
                 "pagePath": "pages/order/order",
                 "text": "我的订单",
-                "iconPath": 
-                "pages/images/icon_myOrder.png",
-                "selectedIconPath": 
-                "pages/images/icon_myOrder_selected.png"
+                "iconPath": "pages/images/icon_myOrder.png",
+                "selectedIconPath": "pages/images/icon_myOrder_selected.png"
             }
         ]
     }

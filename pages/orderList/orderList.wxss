@@ -21,6 +21,8 @@ page, .page, .page__bd {
 
 .weui-navbar__slider {
   background-color: #979797;
+  -webkit-transition: -webkit-transform 0s;
+  transition: -webkit-transform 0s;
 }
 
 .weui-navbar__item.weui-bar__item_on {

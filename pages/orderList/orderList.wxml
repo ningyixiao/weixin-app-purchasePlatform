@@ -17,7 +17,7 @@
             <block wx:for="{{orderList}}" wx:for-index="index1" wx:for-item="order" wx:key="item.orderCode">
 
               <!--单个订单wrap-->
-              <view class="order_wrap">
+              <navigator url="../orderDetail/orderDetail" class="order_wrap">
 
                 <!--订单基本信息-->
                 <view class="order_basic_info">
@@ -38,7 +38,7 @@
 
                 <!--订单的产品列表-->
                 <block wx:for="{{order.productList}}" wx:for-index="index2" wx:for-item="product" wx:key="{{product.productCode}}">
-                  <view id="{{product.id}}" bindtap="buyProduct" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                  <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
                     <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
                       <image class="weui-media-box__thumb" src="{{product.imageUrl}}" />
                     </view>
@@ -55,7 +55,7 @@
                     </view>
                   </view>
                 </block>
-              </view>
+              </navigator>
             </block>
           </view>
         </block>

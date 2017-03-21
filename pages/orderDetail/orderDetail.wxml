@@ -1,0 +1,64 @@
+<view class="page">
+  <view class="top_section">
+    <view class="logistics">
+      <view class="access_arrow weui-cell__ft weui-cell__ft_in-access"></view>
+      <view class="progress">客户已签单</view>
+      <view class="order_time">2017-03-16 12:00:00</view>
+    </view>
+    <view class="order_info">
+      <view>
+        <text>状态:</text>
+        <view class="order_state" wx:if="{{orderState==1}}">已发货</view>
+        <view class="order_state" wx:elif="{{orderState==2}}">待付款</view>
+        <view class="order_state" wx:elif="{{orderState==3}}">待发货</view>
+        <view class="order_state" wx:else>已完成</view>
+      </view>
+      <view>
+        <text>订单编号:</text>{{orderCode}}</view>
+      <view>
+        <text>下单时间:</text>{{orderTime}}</view>
+    </view>
+  </view>
+  <view class="mid_section">
+    <view>
+      <text>收货地址:</text>
+      <view class="addr">{{address}}</view>
+    </view>
+    <view>
+      <text>收货人:</text>
+      {{name}}</view>
+  </view>
+  <view class="btm_section">
+    <view class="product_count">
+      共计
+      <text>{{productList.length}}</text>件商品
+    </view>
+    <view class="product_List">
+      <block wx:for="{{productList}}" wx:for-item="product" wx:key="{{product.productCode}}">
+        <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <image class="weui-media-box__thumb" src="{{product.imageUrl}}" />
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title">{{product.productDes}}</view>
+            <view class="weui-media-box__desc">
+              <text class="info_price">
+                ¥{{product.price}}
+              </text>
+              <text class="info_amount">
+                x{{product.amount}}
+              </text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class="total_price">
+      总计:
+      <text>¥{{totalPrice}}</text>
+    </view>
+  </view>
+  <view wx:if="{{orderState==4}}" class="return_goods">
+    <button>申请退货</button>
+  </view>
+</view>

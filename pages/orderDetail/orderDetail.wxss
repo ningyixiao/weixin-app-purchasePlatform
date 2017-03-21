@@ -1,0 +1,157 @@
+.top_section {
+  background: #fff;
+  overflow: hidden;
+}
+
+.logistics {
+  position: relative;
+  padding: 24rpx 24rpx 16rpx;
+  line-height: 1.4;
+}
+
+.logistics::after {
+  content: "";
+  position: absolute;
+  left: 24rpx;
+  bottom: 0;
+  right: 0;
+  height: 0px;
+  border-top: 1rpx solid #f2f2f2;
+}
+
+.logistics .access_arrow {
+  top: 24rpx;
+}
+
+.logistics .progress {
+  font-size: 24rpx;
+}
+
+.logistics .order_time {
+  font-size: 24rpx;
+  color: #9b9b9b;
+}
+
+.order_info {
+  padding: 16rpx 24rpx 24rpx;
+  font-size: 24rpx;
+  line-height: 1.4;
+}
+
+.order_info text {
+  color: #9b9b9b;
+  padding-right: 12rpx;
+}
+
+.order_info .order_state {
+  display: inline-block;
+}
+
+.mid_section {
+  background: #fff;
+  margin-top: 20rpx;
+  padding: 24rpx;
+  font-size: 24rpx;
+  line-height: 1.4;
+}
+
+.mid_section text {
+  padding-right: 12rpx;
+}
+
+.mid_section .addr {
+  display: inline-block;
+}
+
+.btm_section {
+  background: #fff;
+  margin-top: 20rpx;
+  font-size: 24rpx;
+}
+
+.btm_section .product_count {
+  text-align: right;
+  padding: 18rpx 24rpx;
+  border-bottom: 1rpx solid #f2f2f2;
+}
+
+.btm_section .product_count text {
+  padding: 0 6rpx;
+}
+
+.btm_section .product_List .weui-media-box::before {
+  content: " ";
+  position: absolute;
+  left: 15px;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1rpx solid #f2f2f2;
+}
+
+.btm_section .product_List .weui-media-box:nth-child(1)::before {
+  content: " ";
+  position: absolute;
+  left: 15px;
+  top: 0;
+  right: 0;
+  height: 0;
+  border-top: 0;
+}
+
+.btm_section .product_List .weui-media-box__title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-weight: 400;
+  font-size: 12px;
+  width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: normal;
+  white-space: unset;
+}
+
+.btm_section .product_List .weui-media-box__desc {
+  line-height: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.btm_section .product_List .info_price {
+  display: inline-block;
+  font-size: 12px;
+  color: #f00;
+}
+
+.btm_section .product_List .info_amount {
+  display: inline-block;
+  color: #999;
+  font-size: 10px;
+  margin-left: 20rpx;
+}
+
+.btm_section .total_price {
+  text-align: right;
+  padding: 24rpx 24rpx;
+  border-top: 1rpx solid #f2f2f2;
+}
+
+.btm_section .total_price text {
+  padding-left: 12rpx;
+  color: #f00;
+}
+
+.return_goods {
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+}
+
+.return_goods button {
+  background: #fff;
+  margin-left: 50rpx;
+  margin-right: 50rpx;
+}
