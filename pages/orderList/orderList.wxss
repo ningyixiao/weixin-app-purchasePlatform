@@ -70,6 +70,7 @@ page, .page, .page__bd {
   padding-right: 15rpx;
 }
 
+/*产品小图列表样式*/
 .weui-media-box::before {
   content: " ";
   position: absolute;

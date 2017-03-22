@@ -1,0 +1,14 @@
+/* pages/productList/productList.wxss */
+.placeholder{
+    margin: 5px;
+    padding: 0 10px;
+    text-align: center;
+    /*background-color: white;*/
+    height: 2.3em;
+    line-height: 2.3em;
+    /*color: #cfcfcf;*/
+}
+.imageSize{
+    width: 150rpx;
+    height: 150rpx;
+}

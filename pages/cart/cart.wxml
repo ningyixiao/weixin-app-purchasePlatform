@@ -1,0 +1,53 @@
+<!--pages/cart/cart.wxml-->
+<view class="page__bd">
+ <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__bd">
+            <!--产品列表-->
+                 <block wx:for-items="{{carts}}" wx:key="index">
+                 		
+                <view id="{{item.id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                <!--复选框-->
+                <icon wx:if="{{item.selected}}" type="success_circle" size="20" bindtap="bindCheckbox" data-index="{{index}}"/>
+		<icon wx:else type="circle" size="20" bindtap="bindCheckbox" data-index="{{index}}"/>
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                    <!--缩略图-->
+                        <image class="weui-media-box__thumb" src="{{item.imageUrl}}" />
+                    </view>
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-media-box__title">{{item.productDes}}</view>
+                        <view class="weui-media-box__desc price">￥{{item.price}}
+                        <view class="stepper amount">
+				<!-- 减号 -->
+				<text class="{{minusStatuses[index]}}" data-index="{{index}}" bindtap="bindMinus">-</text>
+				<!-- 数值 -->
+				<input type="number" data-index="{{index}}" bindchange="bindManual" value="{{item.amount}}" />
+				<!-- 加号 -->
+				<text class="{{plusStatuses[index]}}" data-index="{{index}}" bindtap="bindPlus">+</text>
+			  </view>
+                        </view>
+                    <!--产品信息-->
+                     <view class="weui-media-box__desc colorAndSize">颜色：{{item.color}}  尺码：{{item.size}}
+                     
+              </view>
+                    </view>
+                   
+                </view>
+                </block>
+            </view>
+        <view class="footer">
+
+                <view class="selectAll" bindtap="bindSelectAll">
+		<icon wx:if="{{selectedAllStatus}}" type="success_circle" size="20"/>
+		<icon wx:else type="circle" size="20" />
+		<text> 全选</text>
+        </view>
+        <view class="total-price-tab">
+
+            <view class="total-price">
+            总价：<text class="total-price-num">{{totalPrice}}  </text>
+            </view>
+        </view>
+        <view class="go-buy-button" bindtap="goBuy">去下单</view>
+        </view>
+    </view>
+</view>

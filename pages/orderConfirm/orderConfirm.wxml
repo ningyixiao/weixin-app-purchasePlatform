@@ -1,0 +1,29 @@
+<!--pages/orderConfirm/orderConfirm.wxml-->
+<view class="page__bd">
+ <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__bd">
+                 <block wx:for-items="{{productList}}" wx:key="{{item.productCode}}">
+                <navigator id="{{item.id}}" bindtap="buyProduct" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <image class="weui-media-box__thumb" src="{{item.imageUrl}}" />
+                    </view>
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-media-box__title">{{item.productDes}}</view>
+                        <view class="weui-media-box__desc price">￥{{item.price}}</view>
+                     <view class="weui-media-box__desc colorAndSize">颜色：{{item.color}}  尺码：{{item.size}}
+                     <view class="amount">×{{item.amount}}</view></view>
+                    </view>
+                   
+                </navigator>
+                </block>
+            </view>
+        <view class="footer">
+        <view class="total-price-tab">
+            <view class="total-price">
+            总价：<text class="total-price-num">{{totalPrice}}  </text>
+            </view>
+        </view>
+        <view class="go-buy-button" bindtap="goBuy">去下单</view>
+        </view>
+    </view>
+</view>

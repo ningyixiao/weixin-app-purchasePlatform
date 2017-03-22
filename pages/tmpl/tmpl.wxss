@@ -1,25 +1,6 @@
-.top_section {
-  padding: 24rpx 36rpx;
-  font-size: 26rpx;
-  background: #fff;
-}
+/* 需要自定义一个外层来作为容器，在最后三个样式加上自定义外层的类名 */
 
-.top_section>view {
-  display: inline-block;
-}
-
-.top_section .pic_desc {
-  width: 120rpx;
-  text-align: center;
-  padding-right: 36rpx;
-}
-
-.top_section .pro_desc {
-  width: 522rpx;
-  text-align: center;
-}
-
-.main_section {
+.module_wrap {
   margin-top: 20rpx;
   background: #fff;
 }
@@ -64,16 +45,16 @@
   -webkit-line-clamp: 2;
 }
 
-.info_price {
+.module_wrap .info_price {
   display: inline-block;
   font-size: 12px;
   color: #f00;
 }
 
-.item {
+.module_wrap .item {
   padding: 30rpx 36rpx;
 }
 
-.item_pic {
+.module_wrap .item_pic {
   margin-right: 36rpx;
 }

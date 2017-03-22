@@ -1,0 +1,64 @@
+<view class="container">
+  <view class="up_section">
+    <view class="pro_big_pic">
+      <image style="width:{{devWidth}}px" mode="{{imgMode}}" src="{{productData.imageUrl}}"></image>
+    </view>
+    <view class="pro_info">
+      <view class="pro_desc">{{productData.productDes}}</view>
+      <view class="pro_price">¥
+        <text>{{productData.price}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="down_section">
+    <view class="selected_info">
+      <text>已选</text>
+      <text>{{selected_color}},</text>
+      <text>{{selected_size}},</text>
+      <text>数量{{selected_num}}</text>
+    </view>
+    <view class="select_area">
+      <view class="color_area">
+        <view>颜色</view>
+        <view class="color_item_area">
+          <view wx:for="{{productData.color}}">
+            {{item}}
+          </view>
+        </view>
+      </view>
+      <view class="size_area">
+        <view>尺寸</view>
+        <view class="size_item_area">
+          <view wx:for="{{productData.size}}">
+            {{item}}
+          </view>
+        </view>
+      </view>
+      <view class="num_area">
+        <view>数量</view>
+        <view class="count_area">
+          <view bindtap="bindDecreaseTap" class="decrease {{dec_style}}">-</view>
+          <input bindblur="bindInputBlur" data-input="{{selected_num}}" class="num_display" value="{{selected_num}}" />
+          <view bindtap="bindIncreaseTap" class="increase {{inc_style}}">+</view>
+        </view>
+        <view class="stock_display">
+            库存:<text>{{productData.stock}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="fixed_bottom_bar ">
+    <view class="bottom_bar cart ">
+      <view class="pic ">
+        <image src="../images/icon_cart.png "></image>
+      </view>
+      <view class="text ">购物车</view>
+    </view>
+    <view class="bottom_bar add_cart ">
+      <view>加入购物车</view>
+    </view>
+    <view class="bottom_bar buy_now ">
+      <view>立即购买</view>
+    </view>
+  </view>
+</view>

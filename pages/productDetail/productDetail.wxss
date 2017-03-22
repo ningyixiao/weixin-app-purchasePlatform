@@ -1,0 +1,200 @@
+.container {
+  line-height: 1;
+  padding-bottom: 112rpx;
+}
+
+/*上半部分*/
+
+.up_section {
+  background: #fff;
+}
+
+.up_section .pro_info {
+  border-top: 1rpx solid #f2f2f2;
+  font-size: 24rpx;
+  padding: 18rpx 36rpx;
+  line-height: 1.4;
+}
+
+.up_section .pro_info .pro_price {
+  color: #f52f47;
+}
+
+/*下半部分*/
+
+.down_section {
+  margin-top: 20rpx;
+  background: #fff;
+  font-size: 24rpx;
+}
+
+.down_section .selected_info {
+  position: relative;
+  padding: 24rpx;
+}
+
+.down_section .selected_info::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 24rpx;
+  right: 0;
+  border-bottom: 1rpx solid #f2f2f2;
+}
+
+.down_section .selected_info text {
+  padding-right: 12rpx;
+}
+
+.down_section .selected_info text:nth-child(1) {
+  padding-right: 24rpx;
+}
+
+/*用户选择区域*/
+.down_section .select_area {
+  padding: 24rpx;
+}
+.down_section .select_area>view{
+    margin-bottom: 16rpx;
+}
+/*各区域公共样式设置*/
+.color_area>view:first-child, .size_area>view:first-child,
+.num_area>view:first-child {
+  width: 48rpx;
+  padding-right: 48rpx;
+}
+
+.color_area view, .size_area view, .num_area view {
+  display: inline-block;
+}
+
+.color_area>view:nth-child(2), .size_area>view:nth-child(2),
+.num_area>view:nth-child(2) {
+  width: 606rpx;
+}
+/*颜色和尺寸区域中的title和列表中的item*/
+.color_area>view:nth-child(1),.size_area>view:nth-child(1){
+    position: relative;
+    top: 16rpx;
+    vertical-align: top;
+}
+
+.color_area .color_item_area>view,.size_area .size_item_area>view {
+  background: #f8f8f8;
+  padding: 16rpx 24rpx;
+  margin-right: 36rpx;
+  margin-bottom: 24rpx;
+  border-radius: 5rpx;
+}
+
+.selected_style {
+  background: #f52f47;
+  color: #fff;
+}
+/*产品数量增减*/
+.select_area .num_area .count_area{
+    width: auto;
+    border: 1rpx solid #e2e2e2;
+    border-radius: 8rpx;
+}
+.count_area>view{
+    padding: 18rpx 36rpx;
+} 
+.count_area .num_display{
+    display: inline-block;
+    padding: 8rpx 12rpx;
+    font-size: 28rpx;
+    border-left: 1rpx solid #e2e2e2;
+    border-right: 1rpx solid #e2e2e2;
+    width: 112rpx;
+    overflow:unset;
+    min-height: unset;
+    text-align: center;
+}
+.count_area .increase,.count_area .decrease{
+    font-size: 28rpx;
+}
+.num_area .stock_display{
+    margin-left: 24rpx;
+    color: #b2b2b2;
+}
+
+.disable_btn{
+    color: #e2e2e2;
+}
+.enable_btn{
+    color: #000;
+}
+
+/* 底部功能栏  */
+
+.fixed_bottom_bar {
+  position: fixed;
+  width: 100%;
+  height: 92rpx;
+  bottom: -2rpx;
+  overflow: hidden;
+  border-top: 1rpx solid #e2e2e2;
+}
+
+.bottom_bar {
+  position: absolute;
+}
+
+.bottom_bar view {
+  display: inline-block;
+}
+
+.bottom_bar.cart {
+  top: 0;
+  left: 0;
+  background: #fff;
+  font-size: 24rpx;
+  width: 72rpx;
+  height: 72rpx;
+  padding: 10rpx;
+}
+
+.bottom_bar.cart .pic {
+  position: relative;
+  left: 5rpx;
+}
+
+.bottom_bar.cart .pic image {
+  height: 50rpx;
+  width: 50rpx;
+}
+
+.bottom_bar.add_cart {
+  top: 0;
+  left: 92rpx;
+  background: #f5a623;
+  width: 360rpx;
+  font-size: 36rpx;
+  padding: 28rpx 0rpx;
+  text-align: center;
+}
+
+.bottom_bar.add_cart view {
+  position: relative;
+  top: 2rpx;
+  color: #fff;
+  font-weight: 200;
+}
+
+.bottom_bar.buy_now {
+  top: 0;
+  left: 452rpx;
+  background: #f52f47;
+  width: 298rpx;
+  font-size: 36rpx;
+  padding: 28rpx 0rpx;
+  text-align: center;
+}
+
+.bottom_bar.buy_now view {
+  position: relative;
+  top: 2rpx;
+  color: #fff;
+  font-weight: 200;
+}
