@@ -1,7 +1,8 @@
 {
     "pages": [
-        "pages/productDetail/productDetail",
+        "pages/cart/cart",
         "pages/index",
+        "pages/cart/cart",
         "pages/productSort/productSort",
         "pages/productList/productList",
         "pages/productDetail/productDetail",
@@ -28,7 +29,7 @@
         "position": "bottom",
         "list": [
             {
-                "pagePath": "pages/index",
+                "pagePath": "pages/cart/cart",
                 "text": "购物车",
                 "iconPath": "pages/images/icon_cart.png",
                 "selectedIconPath": "pages/images/icon_cart_selected.png"

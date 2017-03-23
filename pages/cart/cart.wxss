@@ -1,102 +1,202 @@
-/* pages/cart/cart.wxss */
-.placeholder{
-    margin: 5px;
-    padding: 0 10px;
-    text-align: center;
-    /*background-color: white;*/
-    height: 2.3em;
-    line-height: 2.3em;
-    /*color: #cfcfcf;*/
+.container {
+  line-height: 1;
+  padding-bottom: 112rpx;
 }
 
-.price{
-    padding-top: 15rpx;
-     color:red;
-}
-.colorAndSize{
-    padding-top: 5rpx;
-    color: #cfcfcf;
-}
-.amount{
-    float: right;
-    color: black;
-}
-.footer {
-	background: #f9f9f9;
-	width: 100%;
-	display: flex; 
-	flex-direction: row; 
-	justify-content: space-between;
-	position: fixed;
-	bottom: 0;
-}
-.total-price-tab {
-	width: 100%;
+.main_section {
+  background: #fff;
+  font-size: 24rpx;
 }
 
+.weui-media-box::before {
+  content: " ";
+  position: absolute;
+  left: 30rpx;
+  top: 0;
+  right: 30rpx;
+  border-top: 1rpx solid #f2f2f2;
+}
 
-.total-price {
-	padding-top: 20rpx;
+.weui-media-box:nth-child(1)::before {
+  content: " ";
+  position: absolute;
+  left: 30rpx;
+  top: 0;
+  right: 30rpx;
+  border-top: 1rpx solid #fff;
+}
+
+.weui-media-box__title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-weight: 400;
+  font-size: 12px;
+  width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: normal;
+  white-space: unset;
+}
+
+.weui-media-box__desc {
+  line-height: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.main_section .info_price {
+  margin-top: 8rpx;
+  height: 24rpx;
+  font-size: 24rpx;
+  line-height: 24rpx;
+  color: #f52f47;
+}
+
+.main_section .info_color_size {
+  margin-top: 8rpx;
+  height: 20rpx;
+  font-size: 20rpx;
+  line-height: 20rpx;
+  color: #b2b2b2;
+}
+
+.main_section .info_color_size text {
+  padding-right: 6rpx;
+}
+
+.main_section .item {
+  padding: 30rpx 24rpx;
+}
+
+.main_section .item_pic {
+  margin-right: 36rpx;
+  margin-left: 12rpx;
+}
+
+/*产品数量加减*/
+.main_section .info_wrap{
+	position: relative;
+}
+.info_wrap .count_area {
+  position: absolute;
+  top: 0;
+  right: 8rpx;
+  height: 48rpx;
+  border: 1rpx solid #e2e2e2;
+  border-radius: 8rpx;
+}
+.info_wrap .count_area .count_common{
+	float: left;
+	padding: 8rpx 24rpx;
+	height: 32rpx;
+}
+.info_wrap .count_area .increase{
 	float: right;
-	font-size: 35rpx;
-}
-.total-price-num{
-	color: red;
-}
-.go-buy-button {
-	float: right;
-	border: 0;	
-	line-height: 100rpx;
-	text-align: center;
-	width: 350rpx;
-	height: 100rpx;
-	background-color: #f60;
-	color: white;
-	font-size: 36rpx;
-	border-radius: 0px;
-}
-.stepper {
-	border: 1px solid #ccc;
-	border-radius: 3px;
-	width: 80px;
-	height: 26px;
-	margin:0 auto;
 }
 
-
-/*加号与减号*/
-.stepper text {
-	width: 19px;
-	line-height: 26px;
-	text-align: center;
-	float: left;
+.info_wrap .count_area .num_display {
+  padding: 0 8rpx;
+  width: 80rpx;
+  font-size: 24rpx;
+  border-left: 1rpx solid #e2e2e2;
+  border-right: 1rpx solid #e2e2e2;
+  text-align: center;
+  min-height: 48rpx;
 }
 
-/*数值*/
-.stepper input {
-	color: black;
-	float: left;
-	margin: 0 auto;
-	width: 40px;
-	height: 26px;
-	text-align: center;
-	font-size: 12px;
-	border-left: 1px solid #ccc;
-	border-right: 1px solid #ccc;
+.count_area .increase, .count_area .decrease {
+  font-size: 28rpx;
 }
 
-/*普通样式*/
-.stepper .normal{
-	color: black;
+.disable_btn {
+  color: #e2e2e2;
 }
 
-/*禁用样式*/
-.stepper .disabled{
-	color: #ccc;
+.enable_btn {
+  color: #000;
 }
-.selectAll{
-	padding-top: 20rpx;
-	padding-left: 20rpx;
-	float: left;
-	width: 40%;
+
+/* 底部功能栏  */
+
+.fixed_bottom_bar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 92rpx;
+  overflow: hidden;
+  border-top: 1rpx solid #e2e2e2;
+  border-bottom: 1rpx solid #e2e2e2;
+}
+
+.bottom_bar {
+  position: absolute;
+}
+
+.bottom_bar view {
+  display: inline-block;
+}
+
+.bottom_bar.select_all {
+  top: 0;
+  left: 0;
+  background: #fff;
+  font-size: 24rpx;
+  width: 72rpx;
+  height: 72rpx;
+  padding: 10rpx;
+}
+
+.bottom_bar.select_all icon {
+  position: relative;
+  left: 14rpx;
+}
+
+.bottom_bar.select_all .text {
+  position: relative;
+  top: 6rpx;
+  left: 11rpx;
+}
+
+.bottom_bar.total_price {
+  top: 0;
+  left: 92rpx;
+  background: #fff;
+  color: #000;
+  width: 420rpx;
+  font-size: 28rpx;
+  padding: 32rpx 0rpx;
+  text-align: right;
+}
+
+.bottom_bar.total_price view {
+  position: relative;
+  right: 36rpx;
+}
+
+.bottom_bar.total_price view text {
+  padding-left: 12rpx;
+  color: #f52f47;
+  font-size: 30rpx;
+}
+
+.bottom_bar.buy_now {
+  top: 0;
+  left: 512rpx;
+  background: #f52f47;
+  width: 238rpx;
+  font-size: 28rpx;
+  font-weight: 200;
+  padding: 32rpx 0rpx;
+  text-align: center;
+}
+
+.bottom_bar.buy_now view {
+  position: relative;
+  top: 2rpx;
+  color: #fff;
+  font-weight: 200;
 }

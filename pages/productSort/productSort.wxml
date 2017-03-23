@@ -21,7 +21,7 @@
                                         <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
                         <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}}">
                             <block wx:for-items="{{item.pages}}" wx:for-item="page" wx:key="*item">
-                                <navigator url="#" class="customize_thd_item weui-cell weui-cell_access">
+                                <navigator url="../productList/productList" class="customize_thd_item weui-cell weui-cell_access">
                                     <view class=" thrid-list weui-cell__bd">{{page}}</view>
                                     <view class="weui-cell__ft weui-cell__ft_in-access"></view>
                                 </navigator>

@@ -48,7 +48,7 @@
     </view>
   </view>
   <view class="fixed_bottom_bar ">
-    <view class="bottom_bar cart ">
+    <view bindtap="bindGoCartTap" class="bottom_bar cart ">
       <view class="pic ">
         <image src="../images/icon_cart.png "></image>
       </view>

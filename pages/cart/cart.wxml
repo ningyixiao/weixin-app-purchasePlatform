@@ -1,53 +1,45 @@
-<!--pages/cart/cart.wxml-->
-<view class="page__bd">
- <view class="weui-panel weui-panel_access">
-            <view class="weui-panel__bd">
-            <!--产品列表-->
-                 <block wx:for-items="{{carts}}" wx:key="index">
-                 		
-                <view id="{{item.id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-                <!--复选框-->
-                <icon wx:if="{{item.selected}}" type="success_circle" size="20" bindtap="bindCheckbox" data-index="{{index}}"/>
-		<icon wx:else type="circle" size="20" bindtap="bindCheckbox" data-index="{{index}}"/>
-                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-                    <!--缩略图-->
-                        <image class="weui-media-box__thumb" src="{{item.imageUrl}}" />
-                    </view>
-                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-                        <view class="weui-media-box__title">{{item.productDes}}</view>
-                        <view class="weui-media-box__desc price">￥{{item.price}}
-                        <view class="stepper amount">
-				<!-- 减号 -->
-				<text class="{{minusStatuses[index]}}" data-index="{{index}}" bindtap="bindMinus">-</text>
-				<!-- 数值 -->
-				<input type="number" data-index="{{index}}" bindchange="bindManual" value="{{item.amount}}" />
-				<!-- 加号 -->
-				<text class="{{plusStatuses[index]}}" data-index="{{index}}" bindtap="bindPlus">+</text>
-			  </view>
-                        </view>
-                    <!--产品信息-->
-                     <view class="weui-media-box__desc colorAndSize">颜色：{{item.color}}  尺码：{{item.size}}
-                     
-              </view>
-                    </view>
-                   
-                </view>
-                </block>
+<view class="container">
+  <view class="main_section">
+    <block wx:for-items="{{cart}}" wx:key="{{item.id}}">
+      <view class="item weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+        <view class="select_circle">
+          <icon type="{{circle_type_arr[index]}}" size="20"></icon>
+        </view>
+        <view class="item_pic weui-media-box__hd weui-media-box__hd_in-appmsg">
+          <image class="weui-media-box__thumb" src="{{item.imageUrl}}" />
+        </view>
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+          <view class="weui-media-box__title">{{item.productDes}}</view>
+          <view class="info_wrap">
+            <view class="info_price">
+              ¥{{item.price}}
             </view>
-        <view class="footer">
-
-                <view class="selectAll" bindtap="bindSelectAll">
-		<icon wx:if="{{selectedAllStatus}}" type="success_circle" size="20"/>
-		<icon wx:else type="circle" size="20" />
-		<text> 全选</text>
-        </view>
-        <view class="total-price-tab">
-
-            <view class="total-price">
-            总价：<text class="total-price-num">{{totalPrice}}  </text>
+            <view class="info_color_size">
+              <text>颜色: {{item.color}}</text>
+              <text> 尺码: {{item.size}}</text>
             </view>
+            <view class="count_area">
+              <view bindtap="bindDecreaseTap" data-index="{{index}}" class="count_common decrease {{dec_style_arr[index]}}">-</view>
+              <input bindblur="bindInputBlur" data-index="{{index}}" class="count_common num_display" type="number" value="{{pro_num_arr[index]}}" />
+              <view bindtap="bindIncreaseTap" data-index="{{index}}" class="count_common increase {{inc_style_arr[index]}}">+</view>
+            </view>
+          </view>
         </view>
-        <view class="go-buy-button" bindtap="goBuy">去下单</view>
-        </view>
+      </view>
+    </block>
+  </view>
+  <view class="fixed_bottom_bar">
+    <view class="bottom_bar select_all ">
+      <icon type="circle" size="20"></icon>
+      <view class="text ">全选</view>
     </view>
+    <view class="bottom_bar total_price ">
+      <view>总计:
+        <text>¥{{totalPrice}}</text>
+      </view>
+    </view>
+    <view class="bottom_bar buy_now ">
+      <view>去结算</view>
+    </view>
+  </view>
 </view>
