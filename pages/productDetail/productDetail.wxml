@@ -21,7 +21,7 @@
       <view class="color_area">
         <view>颜色</view>
         <view class="color_item_area">
-          <view wx:for="{{productData.color}}">
+          <view bindtap="bindColorTap" data-idx="{{index}}" data-color="{{item}}" class="{{color_item_style_arr[index]}}" wx:for="{{productData.color}}">
             {{item}}
           </view>
         </view>
@@ -29,7 +29,7 @@
       <view class="size_area">
         <view>尺寸</view>
         <view class="size_item_area">
-          <view wx:for="{{productData.size}}">
+          <view bindtap="bindSizeTap" data-idx="{{index}}" data-size="{{item}}" class="{{size_item_style_arr[index]}}" wx:for="{{productData.size}}">
             {{item}}
           </view>
         </view>

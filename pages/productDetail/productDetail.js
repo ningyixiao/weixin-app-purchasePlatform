@@ -2,6 +2,8 @@
 Page({
   data: {
     devWidth: 375,
+    color_item_style_arr: [],
+    size_item_style_arr: [],
     imgMode: "widthFix",
     selected_color: "未选择",
     selected_size: "未选择",
@@ -18,11 +20,54 @@ Page({
       price: "50.00"
     }
   },
+  init_style_arr: function (pro_obj) {
+    var color_arr = [];
+    var size_arr = [];
+    for (var i = 0; i < pro_obj.color.length; i++) {
+      color_arr[i] = "no_selected";
+    }
+    for (var j = 0; j < pro_obj.size.length; j++) {
+      size_arr[j] = "no_selected";
+    }
+    this.setData({
+      color_item_style_arr: color_arr,
+      size_item_style_arr: size_arr
+    });
+  },
+  set_style_arr: function (arr, idx) {
+    for (var i = 0; i < arr.length; i++) {
+      arr[i] = "no_selected";
+      i == idx && (arr[i] = "selected_style");
+    }
+    return arr;
+  },
   checkIncState: function (pro_num, pro_stock) {
     return (pro_num < pro_stock);
   },
   checkDecState: function (zero, pro_num) {
     return (zero < pro_num);
+  },
+  bindColorTap: function (e) {
+    var dataset = e.currentTarget.dataset;
+    var idx = dataset.idx;
+    var color = dataset.color;
+    var color_style_arr = this.data.color_item_style_arr;
+    color_style_arr = this.set_style_arr(color_style_arr, idx);
+    this.setData({
+      color_item_style_arr: color_style_arr,
+      selected_color: color
+    });
+  },
+  bindSizeTap: function (e) {
+    var dataset = e.currentTarget.dataset;
+    var idx = dataset.idx;
+    var size = dataset.size;
+    var size_style_arr = this.data.size_item_style_arr;
+    size_style_arr = this.set_style_arr(size_style_arr, idx);
+    this.setData({
+      size_item_style_arr: size_style_arr,
+      selected_size: size
+    });
   },
   bindIncreaseTap: function (e) {
     // 数量按钮加1操作，以及逻辑判断
@@ -88,7 +133,8 @@ Page({
           devWidth: res.windowWidth
         });
       }
-    })
+    });
+    that.init_style_arr(that.data.productData);
   },
   onReady: function () {
     // 页面渲染完成

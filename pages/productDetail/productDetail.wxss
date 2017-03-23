@@ -51,13 +51,17 @@
 }
 
 /*用户选择区域*/
+
 .down_section .select_area {
   padding: 24rpx;
 }
-.down_section .select_area>view{
-    margin-bottom: 16rpx;
+
+.down_section .select_area>view {
+  margin-bottom: 16rpx;
 }
+
 /*各区域公共样式设置*/
+
 .color_area>view:first-child, .size_area>view:first-child,
 .num_area>view:first-child {
   width: 48rpx;
@@ -72,14 +76,16 @@
 .num_area>view:nth-child(2) {
   width: 606rpx;
 }
+
 /*颜色和尺寸区域中的title和列表中的item*/
-.color_area>view:nth-child(1),.size_area>view:nth-child(1){
-    position: relative;
-    top: 16rpx;
-    vertical-align: top;
+
+.color_area>view:nth-child(1), .size_area>view:nth-child(1) {
+  position: relative;
+  top: 16rpx;
+  vertical-align: top;
 }
 
-.color_area .color_item_area>view,.size_area .size_item_area>view {
+.color_area .color_item_area>view, .size_area .size_item_area>view {
   background: #f8f8f8;
   padding: 16rpx 24rpx;
   margin-right: 36rpx;
@@ -87,43 +93,55 @@
   border-radius: 5rpx;
 }
 
-.selected_style {
+.container .down_section .select_area .no_selected {
+  background: #f8f8f8;
+  color: #000;
+}
+
+.container .down_section .select_area .selected_style {
   background: #f52f47;
   color: #fff;
 }
+
 /*产品数量增减*/
-.select_area .num_area .count_area{
-    width: auto;
-    border: 1rpx solid #e2e2e2;
-    border-radius: 8rpx;
-}
-.count_area>view{
-    padding: 18rpx 36rpx;
-} 
-.count_area .num_display{
-    display: inline-block;
-    padding: 8rpx 12rpx;
-    font-size: 28rpx;
-    border-left: 1rpx solid #e2e2e2;
-    border-right: 1rpx solid #e2e2e2;
-    width: 112rpx;
-    overflow:unset;
-    min-height: unset;
-    text-align: center;
-}
-.count_area .increase,.count_area .decrease{
-    font-size: 28rpx;
-}
-.num_area .stock_display{
-    margin-left: 24rpx;
-    color: #b2b2b2;
+
+.select_area .num_area .count_area {
+  width: auto;
+  border: 1rpx solid #e2e2e2;
+  border-radius: 8rpx;
 }
 
-.disable_btn{
-    color: #e2e2e2;
+.count_area>view {
+  padding: 18rpx 36rpx;
 }
-.enable_btn{
-    color: #000;
+
+.count_area .num_display {
+  display: inline-block;
+  padding: 8rpx 12rpx;
+  font-size: 28rpx;
+  border-left: 1rpx solid #e2e2e2;
+  border-right: 1rpx solid #e2e2e2;
+  width: 112rpx;
+  overflow: unset;
+  min-height: unset;
+  text-align: center;
+}
+
+.count_area .increase, .count_area .decrease {
+  font-size: 28rpx;
+}
+
+.num_area .stock_display {
+  margin-left: 24rpx;
+  color: #b2b2b2;
+}
+
+.disable_btn {
+  color: #e2e2e2;
+}
+
+.enable_btn {
+  color: #000;
 }
 
 /* 底部功能栏  */
