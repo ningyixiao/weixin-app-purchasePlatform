@@ -1,6 +1,5 @@
 {
     "pages": [
-        "pages/stockList/stockList",
         "pages/index",
         "pages/cart/cart",
         "pages/orderConfirm/orderConfirm",
@@ -12,9 +11,9 @@
         "pages/orderDetail/orderDetail",
         "pages/applyRefund/applyRefund",
         "pages/orderTrace/orderTrace",
+        "pages/stockSort/stockSort",
         "pages/stockList/stockList",
-        "pages/logs/logs",
-        "pages/tmpl/tmpl"
+        "pages/logs/logs"
     ],
     "window": {
         "navigationBarBackgroundColor": "#000",

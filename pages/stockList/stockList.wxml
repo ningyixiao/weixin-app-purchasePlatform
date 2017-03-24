@@ -1,49 +1,24 @@
-<!--pages/productList/productList.wxml-->
+
 <view class="page__bd">
-        <view class="weui-panel weui-panel_access">
-            <view class="weui-panel__hd">    
-                <view class="weui-flex" >
-                    <view class="placeholder">图片描述</view>
-                    <view class="weui-flex__item"><view class="placeholder">产品描述</view></view>
-                </view>
-            </view>
-            <view class="weui-panel__bd">
-                 <block wx:for-items="{{productList}}" wx:key="{{item.productCode}}">
-                <navigator id="{{item.id}}" bindtap="buyProduct" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-                        <image class="weui-media-box__thumb" src="{{item.imageUrl}}" />
-                    </view>
-                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-                        <view class="weui-media-box__title">{{item.productDes}}</view>
-                         <view class="weui-media-box__desc">{{item.stock}}件</view>
-                    </view>
-                    
-                </navigator>
-                </block>
-            </view>
-            <view class="weui-panel__ft">
-                <view class="weui-cell weui-cell_access weui-cell_link">
-                    <view class="weui-cell__bd">查看更多</view>
-                    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-                </view>
-            </view>
+  <view class="top_section">
+    <view class="pic_desc">图片</view>
+    <view class="pro_desc">产品描述</view>
+  </view>
+  <view class="main_section">
+    <block wx:for-items="{{productList}}" wx:for-item="product" wx:key="{{product.productCode}}">
+      <navigator url="../productDetail/productDetail?productCode={{product.productCode}}" class="item weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+        <view class="item_pic weui-media-box__hd weui-media-box__hd_in-appmsg">
+          <image class="weui-media-box__thumb" src="{{product.imageUrl}}" />
         </view>
-    </view>
-<!--<view class="page__bd page__bd_spacing">
-    <view class="weui-flex" >
-        <view class="placeholder">图片描述</view>
-            <view class="weui-flex__item"><view class="placeholder">产品描述</view></view>
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+          <view class="weui-media-box__title">{{product.productDes}}</view>
+          <view class="weui-media-box__desc">
+            <text class="info_stock">
+              数量 {{product.stock}}
+            </text>
+          </view>
         </view>
- <block wx:for-items="{{productList}}" wx:key="{{item.productCode}}">
-    <view id="{{item.id}}" bindtap="buyProduct">
-        <view class="weui-flex" >
-            <view class="placeholder">
-                <image class="imageSize" src="{{item.imageUrl}}"></image>
-            </view>
-                <view class="weui-flex__item"><view class="placeholder">{{item.productDes}}</view>
-                <view class="placeholder">{{item.price}}</view>
-                </view>
-        </view>
-    </view>
-</block>
-</view>-->
+      </navigator>
+    </block>
+  </view>
+</view>

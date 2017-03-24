@@ -29,14 +29,19 @@ Page({
     ]
   },
   //事件处理函数
-  bindBuyTap: function () {
+  bindBuyTap: function (e) {
     wx.navigateTo({
       url: "productSort/productSort"
     })
   },
-  bindOrderTap: function () {
+  bindOrderTap: function (e) {
     wx.switchTab({
       url: "order/order"
+    })
+  },
+  bindStockTap:function(e){
+    wx.navigateTo({
+      url: 'stockSort/stockSort'
     })
   },
   onLoad: function () {
