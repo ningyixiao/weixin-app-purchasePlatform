@@ -22,6 +22,6 @@ Page({
    
   },
   onLoad: function () {
-    console.log('order page');
+
   }
 })

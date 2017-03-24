@@ -1,22 +1,22 @@
 <view class="page__bd page__bd_spacing">
   <view class="kind-list">
-    <block wx:for-items="{{list}}" wx:key="{{item.id}}">
+    <block wx:for-items="{{list}}" wx:key="{{item.id}}" wx:for-index="i">
       <view class="kind-list__item">
-        <view id="{{item.id}}" class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
+        <view data-type="{{'firstList'}}" id="{{item.id}}" class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
           <view class="weui-flex__item">{{item.name}}</view>
           <image class="kind-list__img" src="../images/icon_nav_List.png"></image>
         </view>
         <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
           <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}}">
-            <block wx:for-items="{{item.childList}}" wx:key="{{item.id}}">
+            <block wx:for-items="{{item.childList}}" wx:for-index="j" wx:for-item="childItem" wx:key="{{childItem.id}}">
               <view class="kind-list__item">
-                <view id="{{item.id}}" class=" customize_sec_item weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
-                  <view class="second-list weui-flex__item">{{item.name}}</view>
-                  <image class="kind-list__img" src="../images/icon_nav_List.png"></image>
+                <view id="{{childItem.id}}" class=" customize_sec_item weui-flex kind-list__item-hd {{childItem.open ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
+                  <view class="weui-flex__item">{{childItem.name}}</view>
+                  <view class="{{customize_postion_arr[i][j]}} second-list weui-cell__ft weui-cell__ft_in-access">{{customize_postion_arr[i][j]}}</view>
                 </view>
-                <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
-                  <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}}">
-                    <block wx:for-items="{{item.pages}}" wx:for-item="page" wx:key="*item">
+                <view class="kind-list__item-bd {{childItem.open ? 'kind-list__item-bd_show' : ''}}">
+                  <view class="weui-cells {{childItem.open ? 'weui-cells_show' : ''}}">
+                    <block wx:for-items="{{childItem.pages}}" wx:for-item="page" wx:key="*item">
                       <navigator url="../productList/productList" class="customize_thd_item weui-cell weui-cell_access">
                         <view class=" thrid-list weui-cell__bd">{{page}}</view>
                         <view class="weui-cell__ft weui-cell__ft_in-access"></view>

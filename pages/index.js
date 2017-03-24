@@ -11,7 +11,7 @@ Page({
       {
         typeId: "Buy",
         typeName: "产品购买",
-        typeIcon: "images/icon_nav_form.png",
+        typeIcon: "images/icon_product_list.png",
         linkIcon: "images/icon_chevron_black.png"
       },
       {
@@ -23,7 +23,7 @@ Page({
       {
         typeId: "Stock",
         typeName: "库存查询",
-        typeIcon: "images/icon_nav_widget.png",
+        typeIcon: "images/icon_stock_search.png",
         linkIcon: "images/icon_chevron_black.png"
       }
     ]
@@ -45,6 +45,6 @@ Page({
     })
   },
   onLoad: function () {
-    console.log('index page');
+
   }
 })

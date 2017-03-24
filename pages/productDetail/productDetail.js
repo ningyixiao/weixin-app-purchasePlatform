@@ -73,7 +73,7 @@ Page({
     // 数量按钮加1操作，以及逻辑判断
     var pro_num = this.data.selected_num;
     var pro_stock = this.data.productData.stock;
-    var zero = 0;
+    var zero = 1;
     var inc_style = "";
     var dec_style = "";
     if (pro_num < pro_stock) {
@@ -92,7 +92,7 @@ Page({
     // 数量按钮加1操作，以及逻辑判断
     var pro_num = this.data.selected_num;
     var pro_stock = this.data.productData.stock;
-    var zero = 0;
+    var zero = 1;
     var inc_style = "";
     var dec_style = "";
     if (zero < pro_num) {
@@ -110,7 +110,7 @@ Page({
   bindInputBlur: function (e) {
     var pro_num = e.detail.value;
     var pro_stock = this.data.productData.stock;
-    var zero = 0;
+    var zero = 1;
     pro_num > pro_stock && (pro_num = pro_stock);
     pro_num < zero && (pro_num = zero);
     var inc_style = "";
