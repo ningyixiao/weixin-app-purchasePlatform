@@ -2,9 +2,11 @@
 // circle_state 0-no_selected 1-selected
 Page({
 	data: {
-		totalPrice: "0.00",
+		totalPrice: 0,
 		circle_type_arr: [],
 		circle_state_arr: [],
+		select_all_state: false,
+		select_all_type: "circle",
 		pro_price_arr: [],
 		pro_num_arr: [],
 		pro_stock_arr: [],
@@ -35,6 +37,21 @@ Page({
 			}
 		]
 	},
+	set_total_price: function () {
+		var pro_num_arr = this.data.pro_num_arr;
+		var circle_state_arr = this.data.circle_state_arr;
+		var pro_price_arr = this.data.pro_price_arr;
+		var total_price = 0;
+		var length = pro_num_arr.length;
+		for (var i = 0; i < length; i++) {
+			if (circle_state_arr[i]) {
+				total_price += Math.round(parseInt(pro_num_arr[i]) * parseFloat(pro_price_arr[i]) * 100) / 100;
+			}
+		}
+		this.setData({
+			totalPrice: Math.round(total_price * 100) / 100
+		});
+	},
 	init_data_arr: function (pro_list_obj) {
 		var circle_type_arr = [];
 		var circle_state_arr = [];
@@ -45,7 +62,7 @@ Page({
 		var dec_style_arr = [];
 		for (var i = 0; i < pro_list_obj.length; i++) {
 			circle_type_arr[i] = "circle";
-			circle_state_arr[i] = 0;
+			circle_state_arr[i] = false;
 			// 取出产品单价，用户选择的数量和库存赋值给全局变量
 			pro_price_arr[i] = pro_list_obj[i].price;
 			pro_num_arr[i] = pro_list_obj[i].amount;
@@ -98,6 +115,7 @@ Page({
 			inc_style_arr: inc_style_arr,
 			dec_style_arr: dec_style_arr
 		});
+		this.set_total_price();
 	},
 	bindDecreaseTap: function (e) {
 		var dataset = e.currentTarget.dataset;
@@ -125,6 +143,7 @@ Page({
 			inc_style_arr: inc_style_arr,
 			dec_style_arr: dec_style_arr
 		});
+		this.set_total_price();
 	},
 	bindInputBlur: function (e) {
 		var dataset = e.currentTarget.dataset;
@@ -151,6 +170,57 @@ Page({
 			inc_style_arr: inc_style_arr,
 			dec_style_arr: dec_style_arr
 		});
+		this.set_total_price();
+	},
+	bindSelectTap: function (e) {
+		var dataset = e.currentTarget.dataset;
+		var index = dataset.index;
+		var circle_state_arr = this.data.circle_state_arr;
+		var circle_type_arr = this.data.circle_type_arr;
+		var circle_state = circle_state_arr[index];
+		var circle_type = circle_type_arr[index];
+		// 一旦点击,state值取反
+		circle_state = !circle_state;
+		if (circle_state) {
+			circle_type = "success";
+		} else {
+			circle_type = "circle";
+		}
+		// 将数值与状态写回
+		circle_state_arr[index] = circle_state;
+		circle_type_arr[index] = circle_type;
+		this.setData({
+			circle_state_arr: circle_state_arr,
+			circle_type_arr: circle_type_arr
+		});
+		this.set_total_price();
+	},
+	bindSelectAllTap: function (e) {
+		var circle_state_arr = this.data.circle_state_arr;
+		var circle_type_arr = this.data.circle_type_arr;
+		var select_all_state = this.data.select_all_state;
+		var select_all_type = this.data.select_all_type;
+		var length = circle_state_arr.length;
+		// 一旦点击,全选状态取反
+		select_all_state = !select_all_state;
+		for (var i = 0; i < length; i++) {
+			circle_state_arr[i] = select_all_state;
+			if (select_all_state) {
+				circle_type_arr[i] = "success";
+				select_all_type = "success";
+			} else {
+				circle_type_arr[i] = "circle";
+				select_all_type = "circle";
+			}
+		}
+		// 将数值与状态写回
+		this.setData({
+			select_all_state: select_all_state,
+			select_all_type: select_all_type,
+			circle_state_arr: circle_state_arr,
+			circle_type_arr: circle_type_arr
+		});
+		this.set_total_price();
 	},
 	onLoad: function (options) {
 		// 页面初始化 options为页面跳转所带来的参数

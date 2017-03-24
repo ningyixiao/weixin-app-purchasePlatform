@@ -2,7 +2,7 @@
   <view class="main_section">
     <block wx:for-items="{{cart}}" wx:key="{{item.id}}">
       <view class="item weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-        <view class="select_circle">
+        <view data-index="{{index}}" bindtap="bindSelectTap" class="select_circle">
           <icon type="{{circle_type_arr[index]}}" size="20"></icon>
         </view>
         <view class="item_pic weui-media-box__hd weui-media-box__hd_in-appmsg">
@@ -29,8 +29,8 @@
     </block>
   </view>
   <view class="fixed_bottom_bar">
-    <view class="bottom_bar select_all ">
-      <icon type="circle" size="20"></icon>
+    <view bindtap="bindSelectAllTap" class="bottom_bar select_all ">
+      <icon type="{{select_all_type}}" size="20"></icon>
       <view class="text ">全选</view>
     </view>
     <view class="bottom_bar total_price ">
