@@ -1,29 +1,39 @@
-<!--pages/orderConfirm/orderConfirm.wxml-->
-<view class="page__bd">
- <view class="weui-panel weui-panel_access">
-            <view class="weui-panel__bd">
-                 <block wx:for-items="{{productList}}" wx:key="{{item.productCode}}">
-                <navigator id="{{item.id}}" bindtap="buyProduct" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-                        <image class="weui-media-box__thumb" src="{{item.imageUrl}}" />
-                    </view>
-                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-                        <view class="weui-media-box__title">{{item.productDes}}</view>
-                        <view class="weui-media-box__desc price">￥{{item.price}}</view>
-                     <view class="weui-media-box__desc colorAndSize">颜色：{{item.color}}  尺码：{{item.size}}
-                     <view class="amount">×{{item.amount}}</view></view>
-                    </view>
-                   
-                </navigator>
-                </block>
-            </view>
-        <view class="footer">
-        <view class="total-price-tab">
-            <view class="total-price">
-            总价：<text class="total-price-num">{{totalPrice}}  </text>
-            </view>
+<view class="container">
+  <view class="main_section">
+    <block wx:for-items="{{productList}}" wx:key="{{item.id}}">
+      <view class="item weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+        <view data-index="{{index}}" bindtap="bindSelectTap" class="select_circle">
+          <icon type="{{circle_type_arr[index]}}" size="20"></icon>
         </view>
-        <view class="go-buy-button" bindtap="goBuy">去下单</view>
+        <view class="item_pic weui-media-box__hd weui-media-box__hd_in-appmsg">
+          <image class="weui-media-box__thumb" src="{{item.imageUrl}}" />
         </view>
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+          <view class="weui-media-box__title">{{item.productDes}}</view>
+          <view class="info_wrap">
+            <view class="info_price">
+              ¥{{item.price}}
+            </view>
+            <view class="info_color_size">
+              <text>颜色: {{item.color}}</text>
+              <text> 尺码: {{item.size}}</text>
+            </view>
+            <view class="count_area">
+              x{{item.amount}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="fixed_bottom_bar">
+    <view class="pay_btn">
+      微信支付
     </view>
+    <view class="total_price">
+      <view>总计:
+        <text>¥ {{totalPrice}}</text>
+      </view>
+    </view>
+  </view>
 </view>

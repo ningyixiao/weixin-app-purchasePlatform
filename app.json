@@ -1,8 +1,9 @@
 {
     "pages": [
-        "pages/cart/cart",
+        "pages/stockList/stockList",
         "pages/index",
         "pages/cart/cart",
+        "pages/orderConfirm/orderConfirm",
         "pages/productSort/productSort",
         "pages/productList/productList",
         "pages/productDetail/productDetail",
@@ -11,6 +12,7 @@
         "pages/orderDetail/orderDetail",
         "pages/applyRefund/applyRefund",
         "pages/orderTrace/orderTrace",
+        "pages/stockList/stockList",
         "pages/logs/logs",
         "pages/tmpl/tmpl"
     ],

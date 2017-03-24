@@ -38,7 +38,7 @@
         <text>¥{{totalPrice}}</text>
       </view>
     </view>
-    <view class="bottom_bar buy_now ">
+    <view bindtap="bindGoBuyTap" class="bottom_bar buy_now ">
       <view>去结算</view>
     </view>
   </view>

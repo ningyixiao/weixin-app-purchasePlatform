@@ -222,6 +222,20 @@ Page({
 		});
 		this.set_total_price();
 	},
+	bindGoBuyTap:function(){
+		wx.navigateTo({
+		  url: '../orderConfirm/orderConfirm',
+		  success: function(res){
+			// success
+		  },
+		  fail: function() {
+			// fail
+		  },
+		  complete: function() {
+			// complete
+		  }
+		})
+	},
 	onLoad: function (options) {
 		// 页面初始化 options为页面跳转所带来的参数
 		this.init_data_arr(this.data.cart);
