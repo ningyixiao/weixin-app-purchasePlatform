@@ -15,6 +15,7 @@
   background: #1aad19;
   color: #fff;
   font-size: 28rpx;
+  margin: 0 36rpx;
 }
 
 .weui-cell::before {
