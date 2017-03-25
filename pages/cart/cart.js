@@ -61,6 +61,7 @@ Page({
 	init_data_arr: function (pro_list_obj) {
 		//pro_list_obj参数来自api返回的数据对象 
 		//用于页面加载时候的本地数据初始化,要在api获取的数据初始化之后调用
+		//初始化这些全局变量的原因,避免对后台请求的数据对象直接操作
 		var totalPrice = 0;//初始化购物车总价格
 		var select_all_state = false;//初始化全选状态
 		var select_all_type = "circle";//初始化全选圆圈的样式
@@ -108,9 +109,11 @@ Page({
 		});
 	},
 	checkIncState: function (pro_num, pro_stock) {
+		//判断产品是否超库存,返回true表示未超出,返回false表示以达到
 		return (parseInt(pro_num) < parseInt(pro_stock));
 	},
 	checkDecState: function (zero, pro_num) {
+		//判断产品是否超最低临界,返回true表示未低于,返回false表示以达到
 		return (parseInt(zero) < parseInt(pro_num));
 	},
 	deal_delete_product: function (circle_state_arr) {
@@ -139,10 +142,15 @@ Page({
 		});
 	},
 	bindIncreaseTap: function (e) {
+		//产品数量加按钮点击事件处理函数
+		//获取当前对应的产品下标
 		var dataset = e.currentTarget.dataset;
 		var index = dataset.index;
+		//产品的数量数组
 		var pro_num_arr = this.data.pro_num_arr;
+		//产品的库存数组
 		var pro_stock_arr = this.data.pro_stock_arr;
+		//产品数量的最低临界
 		var zero = 1;
 		var inc_style_arr = this.data.inc_style_arr;
 		var dec_style_arr = this.data.dec_style_arr;
@@ -150,12 +158,15 @@ Page({
 		var pro_stock = pro_stock_arr[index];
 		var inc_style = inc_style_arr[index];
 		var dec_style = dec_style_arr[index];
+		//如果产品数量小于产品库存,产品数量自增1
 		if (parseInt(pro_num) < parseInt(pro_stock)) {
 			pro_num++;
 		}
+		//产品数量自增操作结束后,分别对产品数量的加减操作的样式进行判断设置
 		this.checkIncState(pro_num, pro_stock) ? inc_style = "enable_btn" : inc_style = "disable_btn";
 		this.checkDecState(zero, pro_num) ? dec_style = "enable_btn" : dec_style = "disable_btn";
 		// 将数值与状态写回
+		//由于每次点击是一个产品，但是全局赋值是数组，因此得先写回局部变量数组，再通过setData写回全局变量数组
 		pro_num_arr[index] = pro_num;
 		inc_style_arr[index] = inc_style;
 		dec_style_arr[index] = dec_style;
@@ -167,6 +178,7 @@ Page({
 		this.set_total_price();
 	},
 	bindDecreaseTap: function (e) {
+		//产品数量减按钮点击事件处理函数
 		var dataset = e.currentTarget.dataset;
 		var index = dataset.index;
 		var pro_num_arr = this.data.pro_num_arr;
@@ -195,6 +207,7 @@ Page({
 		this.set_total_price();
 	},
 	bindInputBlur: function (e) {
+		//产品数量输入框失去焦点事件处理函数
 		var dataset = e.currentTarget.dataset;
 		var index = dataset.index;
 		var pro_num_arr = this.data.pro_num_arr;
@@ -204,8 +217,11 @@ Page({
 		var pro_num = e.detail.value;
 		var pro_stock = pro_stock_arr[index];
 		var zero = 1;
+		//如果产品数量超过库存,则将其设置为库存的量
 		parseInt(pro_num) > parseInt(pro_stock) && (pro_num = pro_stock);
+		//如果数量低于最小值,则将其设置为最小值
 		parseInt(pro_num) < parseInt(zero) && (pro_num = zero);
+		//设置产品加减按钮的样式
 		var inc_style = inc_style_arr[index];
 		var dec_style = dec_style_arr[index];
 		this.checkIncState(pro_num, pro_stock) ? inc_style = "enable_btn" : inc_style = "disable_btn";
@@ -222,6 +238,7 @@ Page({
 		this.set_total_price();
 	},
 	bindSelectTap: function (e) {
+		//产品前选中圈点击事件处理函数
 		var dataset = e.currentTarget.dataset;
 		var index = dataset.index;
 		var circle_state_arr = this.data.circle_state_arr;
@@ -263,6 +280,7 @@ Page({
 		this.deal_delete_product(circle_state_arr);
 	},
 	bindSelectAllTap: function (e) {
+		//全选按钮点击事件处理函数
 		var circle_state_arr = this.data.circle_state_arr;
 		var circle_type_arr = this.data.circle_type_arr;
 		var select_all_state = this.data.select_all_state;

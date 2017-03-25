@@ -101,12 +101,13 @@ Page({
 
         ]
     },
-    init_data_arr: function () {
+    init_data_arr: function (all_list) {
+        //初始化一个二维数组,每一个元素表示每个二级列表的右侧箭头样式
         var customize_position_arr = [];
-        var temp = [];
-        var list = this.data.list;
-        var length = list.length;
+        var list = all_list;//all_list指api返回的产品列表数据
+        var length = list.length;//列表中一级列表的数量
         for (var i = 0; i < length; i++) {
+            var temp = [];
             for (var j = 0; j < list[i].childList.length; j++) {
                 temp[j] = "no_style"
             }
@@ -117,22 +118,27 @@ Page({
         });
     },
     kindToggle: function (e) {
+        // this.data.customize_position_arr[0][0]="hh";
+        // console.log(this.data.customize_position_arr);
         var customize_position_arr = this.data.customize_position_arr;
-        var id = e.currentTarget.id, list = this.data.list;
+        var id = e.currentTarget.id;
+        var list = this.data.list;//获取api返回的产品列表
         for (var i = 0, len = list.length; i < len; ++i) {
             if (list[i].id == id) {
-                list[i].open = !list[i].open
-            } else {
-                for (var j = 0, len = list[i].childList.length; j < len; ++j) {
-                    if (list[i].childList[j].id == id) {
-                        list[i].childList[j].open = !list[i].childList[j].open;
+                list[i].open = !list[i].open;
+                break;
+            }
+            for (var j = 0, len = list[i].childList.length; j < len; ++j) {
+                if (list[i].childList[j].id == id) {
+                    list[i].childList[j].open = !list[i].childList[j].open;
+                    if (customize_position_arr[i][j] == "no_style") {
                         customize_position_arr[i][j] = "customize_position";
-                    } else {
-                        list[i].childList[j].open = false;
+                        console.log(customize_position_arr);
+                    }else{
                         customize_position_arr[i][j] = "no_style";
                     }
+                    break;
                 }
-                // list[i].open = false
             }
         }
         this.setData({
@@ -142,7 +148,7 @@ Page({
     },
     onLoad: function (options) {
         // 页面初始化 options为页面跳转所带来的参数
-        this.init_data_arr();
+        this.init_data_arr(this.data.list);
     },
     onReady: function () {
         // 页面渲染完成
