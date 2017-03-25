@@ -11,7 +11,7 @@ Page({
       {
         typeId: "Buy",
         typeName: "产品购买",
-        typeIcon: "images/icon_product_list.png",
+        typeIcon: "images/icon_nav_cart.png",
         linkIcon: "images/icon_chevron_black.png"
       },
       {

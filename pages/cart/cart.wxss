@@ -171,13 +171,19 @@
   padding: 32rpx 0rpx;
   text-align: right;
 }
-
-.bottom_bar.total_price view {
+.bottom_bar.total_price .delete_btn{
+  position: absolute;
+  top: 32rpx;
+  left: 0;
+  font-size: 28rpx;
+  color: #f52f47;
+}
+.bottom_bar.total_price .text_content {
   position: relative;
   right: 36rpx;
 }
 
-.bottom_bar.total_price view text {
+.bottom_bar.total_price .text_content text {
   padding-left: 12rpx;
   color: #f52f47;
   font-size: 30rpx;

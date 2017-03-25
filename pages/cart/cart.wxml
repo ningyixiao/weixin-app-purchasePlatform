@@ -1,45 +1,53 @@
 <view class="container">
-  <view class="main_section">
-    <block wx:for-items="{{cart}}" wx:key="{{item.id}}">
-      <view class="item weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-        <view data-index="{{index}}" bindtap="bindSelectTap" class="select_circle">
-          <icon type="{{circle_type_arr[index]}}" size="20"></icon>
-        </view>
-        <view class="item_pic weui-media-box__hd weui-media-box__hd_in-appmsg">
-          <image class="weui-media-box__thumb" src="{{item.imageUrl}}" />
-        </view>
-        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-          <view class="weui-media-box__title">{{item.productDes}}</view>
-          <view class="info_wrap">
-            <view class="info_price">
-              ¥{{item.price}}
-            </view>
-            <view class="info_color_size">
-              <text>颜色: {{item.color}}</text>
-              <text> 尺码: {{item.size}}</text>
-            </view>
-            <view class="count_area">
-              <view bindtap="bindDecreaseTap" data-index="{{index}}" class="count_common decrease {{dec_style_arr[index]}}">-</view>
-              <input bindblur="bindInputBlur" data-index="{{index}}" class="count_common num_display" type="number" value="{{pro_num_arr[index]}}" />
-              <view bindtap="bindIncreaseTap" data-index="{{index}}" class="count_common increase {{inc_style_arr[index]}}">+</view>
+  <view wx:if="{{cart_length>0}}" class="not_null">
+    <view class="main_section">
+      <block wx:for-items="{{cart}}" wx:key="{{item.id}}">
+        <view class="item weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <view data-index="{{index}}" bindtap="bindSelectTap" class="select_circle">
+            <icon type="{{circle_type_arr[index]}}" size="20"></icon>
+          </view>
+          <view class="item_pic weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <image class="weui-media-box__thumb" src="{{item.imageUrl}}" />
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title">{{item.productDes}}</view>
+            <view class="info_wrap">
+              <view class="info_price">
+                ¥{{item.price}}
+              </view>
+              <view class="info_color_size">
+                <text>颜色: {{item.color}}</text>
+                <text> 尺码: {{item.size}}</text>
+              </view>
+              <view class="count_area">
+                <view bindtap="bindDecreaseTap" data-index="{{index}}" class="count_common decrease {{dec_style_arr[index]}}">-</view>
+                <input bindblur="bindInputBlur" data-index="{{index}}" class="count_common num_display" type="number" value="{{pro_num_arr[index]}}" />
+                <view bindtap="bindIncreaseTap" data-index="{{index}}" class="count_common increase {{inc_style_arr[index]}}">+</view>
+              </view>
             </view>
           </view>
         </view>
+      </block>
+    </view>
+    <view class="fixed_bottom_bar">
+      <view bindtap="bindSelectAllTap" class="bottom_bar select_all ">
+        <icon type="{{select_all_type}}" size="20"></icon>
+        <view class="text ">全选</view>
       </view>
-    </block>
+      <view class="bottom_bar total_price ">
+        <view bindtap="bindDeleteProTap" wx:if="{{exist_select}}" class="delete_btn">
+          删除
+        </view>
+        <view class="text_content">总计:
+          <text>¥{{totalPrice}}</text>
+        </view>
+      </view>
+      <view bindtap="bindGoBuyTap" class="bottom_bar buy_now ">
+        <view>去结算</view>
+      </view>
+    </view>
   </view>
-  <view class="fixed_bottom_bar">
-    <view bindtap="bindSelectAllTap" class="bottom_bar select_all ">
-      <icon type="{{select_all_type}}" size="20"></icon>
-      <view class="text ">全选</view>
-    </view>
-    <view class="bottom_bar total_price ">
-      <view>总计:
-        <text>¥{{totalPrice}}</text>
-      </view>
-    </view>
-    <view bindtap="bindGoBuyTap" class="bottom_bar buy_now ">
-      <view>去结算</view>
-    </view>
+  <view wx:else class="is_null">
+    购物车为空
   </view>
 </view>
