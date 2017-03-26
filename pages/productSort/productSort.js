@@ -136,11 +136,18 @@ Page({
         return arr;
     },
     close_other_secondMenu: function (arr, i, j) {
-        //关闭除了正在打开的其它同级二级菜单
+        //关闭除了正在打开的其它同级二级菜单并将二级菜单右侧的小箭头样式改成no_style
+        var customize_position_arr = this.data.customize_position_arr;
         var length = arr[i].length;
         for (var k = 0; k < length; k++) {
-            k != j && (arr[i][k] = false);
+            if (k != j) {
+                arr[i][k] == true && (customize_position_arr[i][k] = "no_style");
+                arr[i][k] = false;
+            }
         }
+        this.setData({
+            customize_position_arr: customize_position_arr
+        });
         return arr;
     },
     kindToggle: function (e) {

@@ -1,6 +1,5 @@
 {
     "pages": [
-        "pages/applyRefund/applyRefund",
         "pages/index",
         "pages/cart/cart",
         "pages/orderConfirm/orderConfirm",
