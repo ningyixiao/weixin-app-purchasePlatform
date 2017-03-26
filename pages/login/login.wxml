@@ -1,0 +1,31 @@
+<view class="container">
+  <form bindsubmit="formSubmit">
+    <view class=" weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="customize-title-width weui-label">手机号</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" name="phoneNo" placeholder="请输入手机号" />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="customize-title-width weui-label">密码</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="psw" class="weui-input" type="password" placeholder="请输入密码" />
+        </view>
+      </view>
+    </view>
+    <view class="cus-password-area">
+      <navigator url="../forgetPassword/forgetPassword" class="password-forget">忘记密码?</navigator>
+      <navigator url="../changePassword/changePassword" class="password-change">修改密码</navigator>
+    </view>
+    <button formType="submit" class="customize-btn weui-btn" type="primary">登录</button>
+    <view class="goRegister">
+        <navigator url="../register/register" class="text">前往注册</navigator>
+        <view class="weui-cell__ft_in-access"></view>
+    </view>
+  </form>
+</view>

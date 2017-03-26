@@ -1,0 +1,24 @@
+.container {
+  padding-top: 40rpx;
+}
+
+.weui-cells {
+  font-size: 36rpx;
+}
+
+.customize-title-width {
+  width: 200rpx;
+}
+
+.customize-vcode {
+  min-width: 200rpx;
+  font-size: 36rpx;
+  text-align: center;
+}
+
+.customize-btn {
+  margin-left: 24rpx;
+  margin-right: 24rpx;
+  font-size: 36rpx;
+}
+

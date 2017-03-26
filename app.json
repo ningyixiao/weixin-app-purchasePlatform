@@ -13,6 +13,9 @@
         "pages/orderTrace/orderTrace",
         "pages/stockSort/stockSort",
         "pages/stockList/stockList",
+        "pages/register/register",
+        "pages/forgetPassword/forgetPassword",
+        "pages/changePassword/changePassword",
         "pages/logs/logs"
     ],
     "window": {

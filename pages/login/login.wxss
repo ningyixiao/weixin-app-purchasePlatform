@@ -1,0 +1,71 @@
+/* pages/login/login.wxss */
+
+.container {
+  padding-top: 40rpx;
+}
+
+.weui-cells {
+  font-size: 36rpx;
+}
+
+.customize-title-width {
+  width: 200rpx;
+}
+
+.cus-password-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 32rpx;
+}
+
+.password-forget {
+  margin-top: 20rpx;
+  margin-left: 12rpx;
+  color: #1aad19;
+}
+
+.password-change {
+  margin-top: 20rpx;
+  margin-right: 12rpx;
+  color: #1aad19;
+}
+
+.customize-btn {
+  font-size: 36rpx;
+  margin-left: 12rpx;
+  margin-right: 12rpx;
+}
+
+.goRegister {
+  margin-top: 36rpx;
+  margin-right: 12rpx;
+  position: relative;
+}
+
+.goRegister .text {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-right: 36rpx;
+  font-size: 32rpx;
+  color: #1aad19;
+}
+
+.goRegister .weui-cell__ft_in-access {
+  position: absolute;
+  top: 24rpx;
+  right: 0;
+}
+
+.goRegister .weui-cell__ft_in-access::after {
+  content: " ";
+  position: absolute;
+  height: 12rpx;
+  width: 12rpx;
+  border-width: 2px 2px 0 0;
+  border-color: #1aad19;
+  border-style: solid;
+  -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+}
