@@ -3,8 +3,8 @@ Page({
   data: {
     verifyName: "获取验证码",
     verifyPending: false,
-    input_title_arr: ["手机号", "验证码", "原密码", "新密码"],
-    input_placeholder_arr: ["请输入手机号", "请输入验证码", "请输入原密码", "请输入新密码(至少6位)"]
+    input_title_arr: ["手机号","原密码", "新密码"],
+    input_placeholder_arr: ["请输入手机号", "请输入原密码", "请输入新密码(至少6位)"]
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -20,37 +20,6 @@ Page({
   },
   onUnload: function () {
     // 页面关闭
-  },
-  getVerifyNo: function () {
-    //如果已经在获取验证码等待倒计时,那么直接返回
-    if (this.data.verifyPending) return;
-    // console.log("1");
-    //在定时器外回写veverifyPending,为了防止用户多次点击,导致生成多个定时器
-    var _this = this;
-    _this.setData({
-      verifyPending: true
-    })
-    var timer = setInterval(function () {
-      var verifyName = _this.data.verifyName;
-      //由于保存的获取验证码的框中的是string类型,故需要转成数字 
-      if (isNaN(parseInt(verifyName))) {
-        verifyName = 60;
-      } else {//is number
-        verifyName = parseInt(verifyName);
-      }
-      if (verifyName <= 0) {
-        clearInterval(timer);
-        _this.setData({
-          verifyName: "获取验证码",
-          verifyPending: false
-        })
-      } else {
-        _this.setData({
-          verifyName: --verifyName + 's',
-        })
-      }
-    }, 1000);
-    //请求api
   },
   userInputVerify: function (input_arr) {
     //传入用户输入数据数组

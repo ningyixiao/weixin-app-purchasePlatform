@@ -1,0 +1,32 @@
+.container{
+    padding-bottom: 40rpx;
+    line-height: 1;
+    font-size: 28rpx;
+}
+.fix::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+.current_addr{
+    background: #fff;
+    padding: 24rpx 36rpx; 
+    margin-bottom: 30rpx;
+}
+.current_addr .current_tag{
+    float: left;
+    padding: 6rpx 8rpx;
+    background: #d0021b;
+    font-size: 24rpx;
+    color: #fff;
+    border-radius: 5rpx;
+}
+.current_addr .addr_content{
+    float: right;
+    width: 534rpx;
+}
+
+.addr_list{
+    background: #fff;
+    padding: 0 36rpx;
+}

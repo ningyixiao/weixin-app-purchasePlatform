@@ -6,16 +6,16 @@ Page({
     orderType:[
       {
         typeCode:1,
-        typeName:"全部订单",    typeIcon:"../images/fill_image/rectangle.png"},
+        typeName:"全部订单",    typeIcon:"../images/order_icons/icon_all_orders.png"},
       {
         typeCode:2,
-        typeName:"待付款",    typeIcon:"../images/fill_image/rectangle.png"},
+        typeName:"待付款",    typeIcon:"../images/order_icons/icon_pending_payment.png"},
         {
         typeCode:3,
-        typeName:"待发货",    typeIcon:"../images/fill_image/rectangle.png"},
+        typeName:"待发货",    typeIcon:"../images/order_icons/icon_tobe_delivered.png"},
         {
         typeCode:4,
-        typeName:"已发货",    typeIcon:"../images/fill_image/rectangle.png"}]
+        typeName:"已发货",    typeIcon:"../images/order_icons/icon_shipped.png"}]
   },
   //事件处理函数
   bindViewTap: function() {

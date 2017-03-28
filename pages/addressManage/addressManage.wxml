@@ -1,0 +1,18 @@
+<view class="container">
+  <view class="current_addr fix">
+    <view class="current_tag">当前地址</view>
+    <view class="addr_content">{{current_address}}</view>
+  </view>
+  <view class="addr_list">
+    <block wx:for-items="{{addressList}}">
+      <view class="address_item">
+        <view class="check_box">
+          <icon type="circle" size="20"></icon>
+        </view>
+        <view class="addr_content">{{item.address}}</view>
+        <view class="operate_area"></view>
+      </view>
+    </block>
+  </view>
+  <view class="add_addr"></view>
+</view>

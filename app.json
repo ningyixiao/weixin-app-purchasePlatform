@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/addressManage/addressManage",
         "pages/index",
         "pages/cart/cart",
         "pages/orderConfirm/orderConfirm",
@@ -16,6 +17,7 @@
         "pages/register/register",
         "pages/forgetPassword/forgetPassword",
         "pages/changePassword/changePassword",
+        "pages/addressManage/addressManage",
         "pages/logs/logs"
     ],
     "window": {
