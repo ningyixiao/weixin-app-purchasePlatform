@@ -1,8 +1,6 @@
 Page({
     data: {
-        customize_position_arr: [],//每一个二级菜单右侧小箭头的样式数组
         firstMenu_openState_arr: [],//一级菜单的打开状态数组
-        secondMenu_openState_arr: [],//二级菜单的打开状态数组
         list: [
             {
                 id: '1',
@@ -104,10 +102,8 @@ Page({
         ]
     },
     init_data_arr: function (all_list) {
-        //初始化全部的二维数组
-        var customize_position_arr = [];
+        //初始化数据数组
         var firstMenu_openState_arr = [];
-        var secondMenu_openState_arr = [];
         var list = all_list;//all_list指api返回的产品列表数据
         var length = list.length;//列表中一级列表的数量
         for (var i = 0; i < length; i++) {
@@ -118,13 +114,9 @@ Page({
                 temp[j] = "no_style";
                 temp1[j] = false;
             }
-            customize_position_arr[i] = temp;//初始化每一个二级菜单右侧小箭头的样式数组
-            secondMenu_openState_arr[i] = temp1;//初始化二级菜单的打开状态数组
         }
         this.setData({
-            customize_position_arr: customize_position_arr,
-            firstMenu_openState_arr: firstMenu_openState_arr,
-            secondMenu_openState_arr: secondMenu_openState_arr
+            firstMenu_openState_arr: firstMenu_openState_arr
         });
     },
     close_other_firstMenu: function (arr, i) {
@@ -135,25 +127,8 @@ Page({
         }
         return arr;
     },
-    close_other_secondMenu: function (arr, i, j) {
-        //关闭除了正在打开的其它同级二级菜单并将二级菜单右侧的小箭头样式改成no_style
-        var customize_position_arr = this.data.customize_position_arr;
-        var length = arr[i].length;
-        for (var k = 0; k < length; k++) {
-            if (k != j) {
-                arr[i][k] == true && (customize_position_arr[i][k] = "no_style");
-                arr[i][k] = false;
-            }
-        }
-        this.setData({
-            customize_position_arr: customize_position_arr
-        });
-        return arr;
-    },
     kindToggle: function (e) {
-        var customize_position_arr = this.data.customize_position_arr;
         var firstMenu_openState_arr = this.data.firstMenu_openState_arr;
-        var secondMenu_openState_arr = this.data.secondMenu_openState_arr;
         var list = this.data.list;//api返回的产品列表数据
         var id = e.currentTarget.id;
         for (var i = 0, len = list.length; i < len; ++i) {
@@ -165,28 +140,24 @@ Page({
                 }
                 break;
             }
-            for (var j = 0, len = list[i].childList.length; j < len; ++j) {
-                if (list[i].childList[j].id == id) {
-                    secondMenu_openState_arr[i][j] = !secondMenu_openState_arr[i][j];
-                    //判断二级菜单是否为打开状态,若是,则要将同一级的其它关闭
-                    if (secondMenu_openState_arr[i][j]) {
-                        secondMenu_openState_arr = this.close_other_secondMenu(secondMenu_openState_arr, i, j);
-                    }
-                    if (customize_position_arr[i][j] == "no_style") {
-                        customize_position_arr[i][j] = "customize_position";
-                        console.log(customize_position_arr);
-                    } else {
-                        customize_position_arr[i][j] = "no_style";
-                    }
-                    break;
-                }
-            }
         }
         this.setData({
-            customize_position_arr: customize_position_arr,
-            firstMenu_openState_arr: firstMenu_openState_arr,
-            secondMenu_openState_arr: secondMenu_openState_arr
+            firstMenu_openState_arr: firstMenu_openState_arr
         });
+    },
+    bindChildItemTap:function(e){
+        wx.navigateTo({
+          url: '../productList/productList',
+          success: function(res){
+            // success
+          },
+          fail: function(res) {
+            // fail
+          },
+          complete: function(res) {
+            // complete
+          }
+        })
     },
     onLoad: function (options) {
         // 页面初始化 options为页面跳转所带来的参数

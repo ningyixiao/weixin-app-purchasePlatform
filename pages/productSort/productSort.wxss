@@ -92,28 +92,8 @@
   border-width: 2px 2px 0 0;
   border-color: #000;
   border-style: solid;
-  -webkit-transform: matrix(-0.71, 0.71, -0.71, -0.71, 0, 0);
-  transform: matrix(-0.71, 0.71, -0.71, -0.71, 0, 0);
-  -webkit-transition: transform 0.3s;
-  transition: transform 0.3s;
-  top: -2px;
-  top: 50%;
-  margin-top: -4px;
-  right: 2px;
-}
-
-.second-list.customize_position::after {
-    content: " ";
-  position: absolute;
-  height: 6px;
-  width: 6px;
-  border-width: 2px 2px 0 0;
-  border-color: #000;
-  border-style: solid;
-  -webkit-transform: matrix(0.71, -0.71, 0.71, 0.71, 0, 0);
-  transform: matrix(0.71, -0.71, 0.71, 0.71, 0, 0);
-  -webkit-transition: transform 0.3s;
-  transition: transform 0.3s;
+  -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
   top: -2px;
   top: 50%;
   margin-top: -4px;
