@@ -3,6 +3,25 @@
   padding-bottom: 112rpx;
 }
 
+.top_address {
+  background: #fff;
+  margin-bottom: 30rpx;
+}
+
+.top_address .address_icon {
+  vertical-align: middle;
+  width: 42rpx;
+  height: 42rpx;
+}
+
+.top_address .address_content {
+  margin: 0 24rpx;
+}
+
+.top_address .modify_address {
+  font-size: 28rpx;
+}
+
 .main_section {
   background: #fff;
   font-size: 24rpx;
@@ -112,15 +131,16 @@
   color: #fff;
   border-radius: 5rpx;
 }
-.fixed_bottom_bar .total_price{
-	position: absolute;
-	top: 32rpx;
-	right: 272rpx;
-	font-size: 28rpx;
 
+.fixed_bottom_bar .total_price {
+  position: absolute;
+  top: 32rpx;
+  right: 272rpx;
+  font-size: 28rpx;
 }
-.fixed_bottom_bar .total_price text{
-	font-weight: 350;
-	color: #f52f47;
-	padding-left: 12rpx;
+
+.fixed_bottom_bar .total_price text {
+  font-weight: 350;
+  color: #f52f47;
+  padding-left: 12rpx;
 }

@@ -1,32 +1,104 @@
-.container{
-    padding-bottom: 40rpx;
-    line-height: 1;
-    font-size: 28rpx;
-}
-.fix::after{
-    content: "";
-    display: table;
-    clear: both;
-}
-.current_addr{
-    background: #fff;
-    padding: 24rpx 36rpx; 
-    margin-bottom: 30rpx;
-}
-.current_addr .current_tag{
-    float: left;
-    padding: 6rpx 8rpx;
-    background: #d0021b;
-    font-size: 24rpx;
-    color: #fff;
-    border-radius: 5rpx;
-}
-.current_addr .addr_content{
-    float: right;
-    width: 534rpx;
+.container {
+  padding-bottom: 40rpx;
+  line-height: 1;
+  font-size: 28rpx;
 }
 
-.addr_list{
-    background: #fff;
-    padding: 0 36rpx;
+.fix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.current_addr {
+  background: #fff;
+  padding: 24rpx 36rpx;
+  margin-bottom: 30rpx;
+}
+
+.current_addr .current_tag {
+  float: left;
+  padding: 8rpx 10rpx;
+  background: #d0021b;
+  font-size: 22rpx;
+  color: #fff;
+  border-radius: 5rpx;
+}
+
+.current_addr .addr_content {
+  float: right;
+  width: 534rpx;
+  font-size: 30rpx;
+}
+
+.addr_list {
+  background: #fff;
+  padding: 0 36rpx;
+}
+
+.address_item {
+  padding: 1em 0;
+  position: relative;
+}
+
+.address_item .check_box {
+  float: left;
+  padding-right: 1em;
+}
+
+@media screen and (min-width:320px) {
+  .address_item .addr_content, .address_item .operate_area {
+    margin-top: 12rpx;
+  }
+}
+
+@media screen and (min-width:375px) {
+  .address_item .addr_content, .address_item .operate_area {
+    margin-top: 6rpx;
+  }
+}
+
+.address_item .addr_content {
+  float: left;
+  width: 440rpx;
+}
+
+.address_item .operate_area {
+  float: right;
+}
+
+.address_item .operate_area>view {
+  display: inline-block;
+  margin-left: 24rpx;
+  color: #d0021b;
+}
+.address_item .operate_area.disabled>view{
+  color: #b2b2b2;
+}
+
+.address_item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 1rpx solid #f2f2f2;
+}
+
+.address_item:first-child::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 1rpx solid #fff;
+}
+
+.add_addr{
+  margin-top: 30rpx;
+}
+.add_addr button{
+  background: #fff;
+  margin: 0 36rpx;
+  font-size: 32rpx;
 }

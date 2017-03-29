@@ -1,50 +1,87 @@
+.container {
+  line-height: 1;
+}
+
 .top_section {
-    padding-top: 30rpx;
-    padding-bottom: 30rpx;
-    text-align: center;
-    background: #fff;
-    margin-bottom: 30rpx;
+  padding: 30rpx;
+  background: #fff;
+  margin-bottom: 30rpx;
 }
+
+.top_section text {
+  font-size: 36rpx;
+}
+
 .top_text_style {
-    margin-left: 30rpx;
-    color: #888;
-    font-weight: 300;
+  margin-left: 30rpx;
+  color: #888;
+  font-weight: 300;
 }
-.middle_section navigator .weui-cell__bd{
-    font-size: 26rpx;
+
+.top_section .goAddressManage {
+  padding-right: 24rpx;
+  float: right;
+  position: relative;
+  font-size: 28rpx;
+  line-height: 36rpx;
+  color: #888;
 }
+
+.top_section .goAddressManage::after {
+  content: " ";
+  top: 50%;
+  margin-top: -8rpx;
+  right: 4rpx;
+  position: absolute;
+  height: 12rpx;
+  width: 12rpx;
+  border-width: 4rpx 4rpx 0 0;
+  border-color: #c8c8cd;
+  border-style: solid;
+  -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+}
+
+.middle_section navigator .weui-cell__bd {
+  font-size: 26rpx;
+}
+
 .order_type_icon {
-    margin-right:14rpx;
-    vertical-align:middle;
-    width:42rpx;
-    height:42rpx;
-    margin-bottom:4rpx;
+  margin-right: 14rpx;
+  vertical-align: middle;
+  width: 42rpx;
+  height: 42rpx;
+  margin-bottom: 4rpx;
 }
+
 .weui-cells::before {
-    content: "";
-    position:absolute;
-    left:0;
-    top:0;
-    right:0;
-    height:1px;
-    border:0;
-    color:#D9D9D9;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border: 0;
+  color: #d9d9d9;
 }
+
 .weui-cells::after {
-    content:" ";
-    position:absolute;
-    left:0;
-    bottom:0;
-    right:0;
-    height:1px;
-    border:0;
-    color:#D9D9D9;
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1px;
+  border: 0;
+  color: #d9d9d9;
 }
+
 .divide {
-    height: 2rpx;
-    padding: 0 15px;
+  height: 2rpx;
+  padding: 0 15px;
 }
+
 .divide view {
-    height: 100%;
-    background: #E5E5E5;
+  height: 100%;
+  background: #e5e5e5;
 }

@@ -1,0 +1,20 @@
+.container {
+  padding: 24rpx 36rpx;
+  font-size: 32rpx;
+}
+
+.content {
+  background: #fff;
+  font-size: 32rpx;
+  border: 1rpx solid #e2e2e2;
+}
+
+.confirm_btn {
+  margin-top: 32rpx;
+}
+
+.confirm_btn button {
+  font-size: 32rpx;
+  background: #1aad19;
+  color: #fff;
+}

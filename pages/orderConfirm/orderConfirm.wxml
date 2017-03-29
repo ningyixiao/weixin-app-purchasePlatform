@@ -1,4 +1,15 @@
 <view class="container">
+  <view class="top_address">
+    <navigator hover-class="weui-cell_active" class="weui-cell weui-cell_access" url="../addressManage/addressManage">
+      <view class="weui-cell__hd">
+        <image src="{{basic.address_icon}}" class="address_icon">
+        </image>
+      </view>
+      <view class="address_content weui-cell__bd">{{address}}</view>
+      <view class="modify_address weui-cell__ft weui-cell__ft_in-access">更改地址 
+      </view>
+    </navigator>
+  </view>
   <view class="main_section">
     <block wx:for-items="{{productList}}" wx:key="{{item.id}}">
       <view class="item weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">

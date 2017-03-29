@@ -1,9 +1,10 @@
-<view class="page_bd">
+<view class="container">
 
   <!--个人信息-->
   <view class="top_section">
     <text>账户</text>
     <text class="top_text_style">{{userInfo.phone}}</text>
+    <view bindtap="bindGoAddrManageTap" class="goAddressManage">地址管理</view>
   </view>
 
   <!--订单类型列表-->

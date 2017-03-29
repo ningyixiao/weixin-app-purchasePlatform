@@ -5,14 +5,19 @@
   </view>
   <view class="addr_list">
     <block wx:for-items="{{addressList}}">
-      <view class="address_item">
-        <view class="check_box">
-          <icon type="circle" size="20"></icon>
+      <view class="address_item fix">
+        <view data-idx="{{index}}" bindtap="bindCheckBoxTap" class="check_box">
+          <icon type="{{check_style_arr[index]}}" size="20"></icon>
         </view>
         <view class="addr_content">{{item.address}}</view>
-        <view class="operate_area"></view>
+        <view class="{{check_state_arr[index]?'operate_area disabled':'operate_area'}}">
+            <view data-idx="{{index}}" bindtap="bindModifyTap">修改</view>
+            <view data-idx="{{index}}" bindtap="bindDeleteTap">删除</view>
+        </view>
       </view>
     </block>
   </view>
-  <view class="add_addr"></view>
+  <view bindtap="bindAddAddressTap" class="add_addr">
+    <button>新增地址</button>
+  </view>
 </view>

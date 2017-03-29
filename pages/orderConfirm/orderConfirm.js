@@ -1,6 +1,7 @@
 // pages/orderConfirm/orderConfirm.js
 Page({
   data:{
+    basic:{address_icon:"../images/icon_address.png"},
         productList:[
       {
         id:"11",
@@ -21,7 +22,8 @@ Page({
         amount:"2"
       }
     ],
-    totalPrice:"200.00"
+    totalPrice:"200.00",
+    address:"留和路288号"
   },
   goBuy:function(){
 

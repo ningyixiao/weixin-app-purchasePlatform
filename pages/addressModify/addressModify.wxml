@@ -1,0 +1,10 @@
+<view class="container">
+  <form bindsubmit="bindFormSubmit">
+    <view class="content">
+      <textarea name="textarea" value="{{receive.address}}" placeholder="请输入新增地址" />
+    </view>
+    <view class="confirm_btn">
+      <button form-type="submit">确认修改</button>
+    </view>
+  </form>
+</view>

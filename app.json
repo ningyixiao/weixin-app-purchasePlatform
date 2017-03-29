@@ -1,6 +1,6 @@
 {
     "pages": [
-        "pages/addressManage/addressManage",
+        "pages/orderConfirm/orderConfirm",
         "pages/index",
         "pages/cart/cart",
         "pages/orderConfirm/orderConfirm",
@@ -18,6 +18,9 @@
         "pages/forgetPassword/forgetPassword",
         "pages/changePassword/changePassword",
         "pages/addressManage/addressManage",
+        "pages/addressManage/addressManage",
+        "pages/addAddress/addAddress",
+        "pages/addressModify/addressModify",
         "pages/logs/logs"
     ],
     "window": {

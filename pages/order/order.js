@@ -18,8 +18,19 @@ Page({
         typeName:"已发货",    typeIcon:"../images/order_icons/icon_shipped.png"}]
   },
   //事件处理函数
-  bindViewTap: function() {
-   
+  bindGoAddrManageTap:function(e){
+    wx.navigateTo({
+      url: '../addressManage/addressManage',
+      success: function(res){
+        // success
+      },
+      fail: function(res) {
+        // fail
+      },
+      complete: function(res) {
+        // complete
+      }
+    })
   },
   onLoad: function () {
 
