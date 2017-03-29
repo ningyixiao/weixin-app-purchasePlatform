@@ -20,12 +20,11 @@
     </view>
     <view class="cus-password-area">
       <navigator url="../forgetPassword/forgetPassword" class="password-forget">忘记密码?</navigator>
-      <navigator url="../changePassword/changePassword" class="password-change">修改密码</navigator>
-    </view>
-    <button formType="submit" class="customize-btn weui-btn" type="primary">登录</button>
-    <view class="goRegister">
+      <view class="goRegister">
         <navigator url="../register/register" class="text">前往注册</navigator>
         <view class="weui-cell__ft_in-access"></view>
+      </view>
     </view>
+    <button formType="submit" class="customize-btn weui-btn" type="primary">登录</button>
   </form>
 </view>
