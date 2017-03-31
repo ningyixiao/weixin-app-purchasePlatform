@@ -1,7 +1,60 @@
 // pages/login/login.js
 Page({
   data: {
-    
+
+  },
+  alertMsg: function (str) {
+    wx.showModal({
+      content: str,
+      showCancel: false,
+      success: function (res) {
+        if (res.confirm) {
+        }
+      }
+    })
+  },
+  formSubmit: function (e) {
+    var Tel = e.detail.value.Tel;
+    var Pwd = e.detail.value.Pwd;
+    var Loadtype = "2";
+    if (!Tel.length || !Pwd.length) {
+      this.alertMsg("手机号或密码不能为空");
+    } else {
+      wx.request({
+        url: 'http://112.124.35.60:10000/QunYuOutLineServices.asmx/Login',
+        data: {
+          "Tel": Tel,
+          "Pwd": Pwd,
+          "Loadtype": Loadtype
+        },
+        method: 'POST',
+        header: {
+          "content-type": "application/x-www-form-urlencoded"
+        },
+        success: function (res) {
+          // success
+          console.log(res);
+          wx.switchTab({
+            url: '../index',
+            success: function(res){
+              // success
+            },
+            fail: function(res) {
+              // fail
+            },
+            complete: function(res) {
+              // complete
+            }
+          })
+        },
+        fail: function (res) {
+          // fail
+        },
+        complete: function (res) {
+          // complete
+        }
+      })
+    }
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -17,20 +70,5 @@ Page({
   },
   onUnload: function () {
     // 页面关闭
-  },
-  formSubmit: function (e) {
-    if (!e.detail.value.phoneNo.length || !e.detail.value.psw.length) {
-      alterMsg("手机号或密码不能为空");
-    }
-  },
-  alertMsg: function (str) {
-    wx.showModal({
-      content: str,
-      showCancel: false,
-      success: function (res) {
-        if (res.confirm) {
-        }
-      }
-    })
   }
 })

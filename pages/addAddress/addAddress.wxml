@@ -1,7 +1,63 @@
 <view class="container">
   <form bindsubmit="bindFormSubmit">
-    <view class="content">
-      <textarea name="textarea" placeholder="请输入新增地址" />
+    <view class="form-items">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">收件人</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入收件人姓名" />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">联系方式</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入联系方式" />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">省级</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker mode="selector" range="{{provice_arr}}" value="{{idx}}" bindchange="bindProviceChange">
+            <view class="weui-input">{{selectedProvice}}</view>
+          </picker>
+        </view>
+      </view>
+       <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">市级</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker disabled="{{!select_state_arr[0]}}" mode="selector" value="{{index}}" range="{{city_arr}}" bindchange="bindCityChange">
+            <view class="weui-input">{{selectedCity}}</view>
+          </picker>
+        </view>
+      </view>
+       <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">县级</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker disabled="{{!select_state_arr[0]||!select_state_arr[1]}}" mode="selector" value="{{index}}" range="{{county_arr}}" bindchange="bindCountyChange">
+            <view class="weui-input">{{selectedCounty}}</view>
+          </picker>
+        </view>
+      </view>
+    </view>
+    <view class="address_content">
+      <view class="weui-cells__title">详细地址</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <textarea class="weui-textarea" placeholder="请输入详细地址" style="height: 3.3em" />
+            <view class="weui-textarea-counter"></view>
+          </view>
+        </view>
+      </view>
     </view>
     <view class="confirm_btn">
       <button form-type="submit">确认</button>
