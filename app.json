@@ -1,6 +1,6 @@
 {
     "pages": [
-        "pages/addAddress/addAddress",
+        "pages/addressModify/addressModify",
         "pages/index",
         "pages/cart/cart",
         "pages/orderConfirm/orderConfirm",

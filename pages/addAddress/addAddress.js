@@ -10,7 +10,8 @@ Page({
     provice_arr: [],//全部省份名数组
     city_arr: [],//对应的省份包含的市名数组
     county_arr: [],//对应的市包含的县名数组
-    areas: {} //从areas.js获取到的全国省市县三级联动对象
+    areas: {}, //从areas.js获取到的全国省市县三级联动对象
+    setDefaultAddress: false //是否设为默认地址
   },
   init_data: function () {
     var areas = areas_js.areas;
@@ -85,10 +86,15 @@ Page({
       selectedCounty: selectedCounty
     });
   },
+  bindSetDefaultAddrChange: function (e) {
+    var setDefaultAddress = e.detail.value;
+    this.setData({
+      setDefaultAddress: setDefaultAddress
+    });
+  },
   bindFormSubmit: function (e) {
-    var address = e.detail.value.textarea;
     wx.navigateBack({
-      delta: 1, // 回退前 delta(默认为1) 页面
+      delta: 1, // 回退到前1页面
       success: function (res) {
         // success
       },

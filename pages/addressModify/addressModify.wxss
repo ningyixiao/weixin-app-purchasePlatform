@@ -3,10 +3,20 @@
   font-size: 32rpx;
 }
 
-.content {
+.form-items {
   background: #fff;
   font-size: 32rpx;
   border: 1rpx solid #e2e2e2;
+}
+
+.address_content .weui-cell {
+  border-left: 1rpx solid #e2e2e2;
+  border-right: 1rpx solid #e2e2e2;
+}
+
+.setDefaultAddress{
+  margin-top: 30rpx;
+  background: #fff;
 }
 
 .confirm_btn {
@@ -18,3 +28,4 @@
   background: #1aad19;
   color: #fff;
 }
+

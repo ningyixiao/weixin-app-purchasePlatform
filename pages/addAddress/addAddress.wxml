@@ -27,7 +27,7 @@
           </picker>
         </view>
       </view>
-       <view class="weui-cell weui-cell_input">
+      <view class="weui-cell weui-cell_input">
         <view class="weui-cell__hd">
           <view class="weui-label">市级</view>
         </view>
@@ -37,7 +37,7 @@
           </picker>
         </view>
       </view>
-       <view class="weui-cell weui-cell_input">
+      <view class="weui-cell weui-cell_input">
         <view class="weui-cell__hd">
           <view class="weui-label">县级</view>
         </view>
@@ -56,6 +56,14 @@
             <textarea class="weui-textarea" placeholder="请输入详细地址" style="height: 3.3em" />
             <view class="weui-textarea-counter"></view>
           </view>
+        </view>
+      </view>
+    </view>
+    <view class="setDefaultAddress">
+      <view class="weui-cell weui-cell_switch">
+        <view class="weui-cell__bd">设为默认地址</view>
+        <view class="weui-cell__ft">
+          <switch bindchange="bindSetDefaultAddrChange" />
         </view>
       </view>
     </view>
