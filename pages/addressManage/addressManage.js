@@ -1,47 +1,64 @@
 // pages/addressManage/addressManage.js
 Page({
   data: {
-    current_address: "",//用户当前默认地址,需要初始化
+    is_address_null: false,
+    exist_default: false,
+    default_address: "",//用户当前默认地址,需要初始化
     check_state_arr: [],//选中圈状态数组,需要初始化
     check_style_arr: [],//选中圈样式数组,需要初始化
     addr_arr_length: 0,//地址数组长度,需要初始化
-    addressList: [{ state: 1, address: "阿科技护肤就是浪费卢卡斯飞机洛克菲勒卡解放了卡解放了卡积分西湖区留和路288号" }, { state: 0, address: "西湖区留和路289号" }, { state: 0, address: "西湖区留和路290号" }]
+    addressList: [{ state: 0, address: "阿科技护肤就是浪费卢卡斯飞机洛克菲勒卡解放了卡解放了卡积分西湖区留和路288号" }, { state: 0, address: "西湖区留和路289号" }, { state: 0, address: "西湖区留和路290号" }]
   },
   init_data: function (addrList) {
-    var current_address = this.data.current_address;
-    var check_state_arr = this.data.check_state_arr;
-    var check_style_arr = this.data.check_style_arr;
-    var addr_arr_length = addrList.length;
-    var count = 0;
-    for (var i = 0; i < addrList.length; i++) {
-      //判断是否为默认地址
-      if (addrList[i].state == 1) {
-        current_address = addrList[i].address;
-        check_state_arr[i] = true;
-        check_style_arr[i] = "success";
-        count++;
-      } else {
-        check_state_arr[i] = false;
-        check_style_arr[i] = "circle";
+    console.log("init")
+    if (addrList.length > 0) {
+      var default_address = this.data.default_address;
+      var check_state_arr = this.data.check_state_arr;
+      var check_style_arr = this.data.check_style_arr;
+      var addr_arr_length = addrList.length;
+      var count = 0;
+      for (var i = 0; i < addrList.length; i++) {
+        //判断是否为默认地址
+        if (addrList[i].state == 1) {
+          default_address = addrList[i].address;
+          check_state_arr[i] = true;
+          check_style_arr[i] = "success";
+          count++;
+        } else {
+          check_state_arr[i] = false;
+          check_style_arr[i] = "circle";
+        }
       }
-    }
-    //默认地址状态个数为1,则回写数据
-    if (count == 1) {
       this.setData({
-        current_address: current_address,
+        default_address: default_address,
         check_state_arr: check_state_arr,
         check_style_arr: check_style_arr,
-        addr_arr_length: addr_arr_length
+        addr_arr_length: addr_arr_length,
+        is_address_null: false
       });
+      //默认地址状态个数为1,则回写数据
+      if (count > 0) {
+        this.setData({
+          exist_default: true
+        });
+      } else {
+        this.setData({
+          exist_default: false
+        });
+      }
     } else {
-      console.log("默认地址不唯一");
+      //如果api返回的地址数组为空
+      this.setData({
+        exist_default: false,
+        is_address_null: true
+      });
     }
   },
   bindCheckBoxTap: function (e) {
     var dataset = e.currentTarget.dataset;
     var idx = dataset.idx;
     var addressList = this.data.addressList;
-    var current_address = this.data.current_address;
+    var default_address = this.data.default_address;
     var check_state_arr = this.data.check_state_arr;
     var check_style_arr = this.data.check_style_arr;
     var addr_arr_length = this.data.addr_arr_length;
@@ -50,17 +67,18 @@ Page({
       check_style_arr[i] = "circle";
       addressList[i].state = 0;
       if (i == idx) {
-        current_address = addressList[i].address;
+        default_address = addressList[i].address;
         check_state_arr[i] = true;
         check_style_arr[i] = "success";
         addressList[i].state = 1;
       }
     }
     this.setData({
-      current_address: current_address,
+      default_address: default_address,
       check_state_arr: check_state_arr,
       check_style_arr: check_style_arr,
-      addressList: addressList
+      addressList: addressList,
+      exist_default: true
     });
   },
   bindModifyTap: function (e) {
@@ -72,13 +90,13 @@ Page({
     if (!check_state_arr[idx]) {
       wx.navigateTo({
         url: '../addressModify/addressModify',
-        success: function(res){
+        success: function (res) {
           // success
         },
-        fail: function(res) {
+        fail: function (res) {
           // fail
         },
-        complete: function(res) {
+        complete: function (res) {
           // complete
         }
       })
@@ -106,16 +124,16 @@ Page({
       })
     }
   },
-  bindAddAddressTap:function(e){
+  bindAddAddressTap: function (e) {
     wx.navigateTo({
       url: '../addAddress/addAddress',
-      success: function(res){
+      success: function (res) {
         // success
       },
-      fail: function(res) {
+      fail: function (res) {
         // fail
       },
-      complete: function(res) {
+      complete: function (res) {
         // complete
       }
     })

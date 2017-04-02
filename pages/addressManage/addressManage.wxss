@@ -10,13 +10,13 @@
   clear: both;
 }
 
-.current_addr {
+.top_section .current_addr {
   background: #fff;
   padding: 24rpx 36rpx;
   margin-bottom: 30rpx;
 }
 
-.current_addr .current_tag {
+.top_section .current_addr .current_tag {
   float: left;
   padding: 8rpx 10rpx;
   background: #d0021b;
@@ -25,10 +25,17 @@
   border-radius: 5rpx;
 }
 
-.current_addr .addr_content {
+.top_section .current_addr .addr_content {
   float: right;
   width: 534rpx;
   font-size: 30rpx;
+}
+
+.top_section .warn{
+  background: #fff;
+  padding: 24rpx 36rpx;
+  margin-bottom: 30rpx;
+  text-align: center;
 }
 
 .addr_list {

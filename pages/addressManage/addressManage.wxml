@@ -1,7 +1,15 @@
 <view class="container">
-  <view class="current_addr fix">
-    <view class="current_tag">当前地址</view>
-    <view class="addr_content">{{current_address}}</view>
+  <view class="top_section">
+    <view wx:if="{{exist_default}}" class="current_addr fix">
+      <view class="current_tag">当前地址</view>
+      <view class="addr_content">{{default_address}}</view>
+    </view>
+    <view wx:elif="{{is_address_null}}" class="warn">
+      请新增一个地址
+    </view>
+    <view wx:else class="warn">
+      请设置默认地址
+    </view>
   </view>
   <view class="addr_list">
     <block wx:for-items="{{addressList}}">
@@ -11,8 +19,8 @@
         </view>
         <view class="addr_content">{{item.address}}</view>
         <view class="{{check_state_arr[index]?'operate_area disabled':'operate_area'}}">
-            <view data-idx="{{index}}" bindtap="bindModifyTap">修改</view>
-            <view data-idx="{{index}}" bindtap="bindDeleteTap">删除</view>
+          <view data-idx="{{index}}" bindtap="bindModifyTap">修改</view>
+          <view data-idx="{{index}}" bindtap="bindDeleteTap">删除</view>
         </view>
       </view>
     </block>

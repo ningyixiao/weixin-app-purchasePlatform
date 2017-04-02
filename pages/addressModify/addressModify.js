@@ -130,15 +130,15 @@ Page({
   },
   bindFormSubmit: function (e) {
     var address = e.detail.value.textarea;
-    wx.navigateBack({
-      delta: 1, // 回退前 delta(默认为1) 页面
-      success: function (res) {
+    wx.navigateTo({
+      url: '../addressManage/addressManage',
+      success: function(res){
         // success
       },
-      fail: function (res) {
+      fail: function(res) {
         // fail
       },
-      complete: function (res) {
+      complete: function(res) {
         // complete
       }
     })

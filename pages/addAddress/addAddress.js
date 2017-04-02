@@ -93,8 +93,8 @@ Page({
     });
   },
   bindFormSubmit: function (e) {
-    wx.navigateBack({
-      delta: 1, // 回退到前1页面
+    wx.navigateTo({
+      url: '../addressManage/addressManage',
       success: function (res) {
         // success
       },
